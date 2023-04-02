@@ -1,0 +1,835 @@
+﻿emotion,appraisal,k,r,interpretation,prediction
+anger,Accountability-Other,48,.36***,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the anger.",Predicted & Supported
+anger,Accountability-Self,25,0.05,,No prediction & Not Significant
+anger,Threat,25,.37***,"The greater the perceived imminent threat in the situation, the greater the anger.",No prediction & Significant
+anger,Goal relevance,23,.25***,"The greater the perceived relevance of the situation to one's goals, the greater the anger",Predicted & Supported
+anger,Control-Self,22,-0.06,,Predicted & Not Significant
+anger,Fairness,20,-.38***,"The greater the perceived fairness of situation, the less the anger",Predicted & Supported
+anger,Goal conduciveness,20,-.29**,"The greater the consistency of the situation with one’s goals, the less the anger",Predicted & Supported
+anger,Problem-focused coping potential,19,-.20***,"The greater the perceived ability to cope and adapt to the situation, the less the anger",Predicted & Supported
+anger,Certainty,12,-0.1,,Predicted & Not Significant
+anger,Pleasantness,11,-.42***,"The greater the perceived pleasantness of situation, the less the anger",Predicted & Supported
+anger,future expectancy,9,-0.11,,No prediction & Not Significant
+anger,Accountability-Circumstances,7,-0.004,,No prediction & Not Significant
+anger,Emotion-focused coping potential,7,-0.13,,No prediction & Not Significant
+anger,Normative significance (external),7,-.29**,"The greater the consistency of the situation with external and social norms, the less the anger",Predicted & Supported
+anger,Value,7,-.25***,"The greater the perceived value of the situation to one's goals and desires, the less the anger",No prediction & Significant
+anger,Control-Other,6,-0.01,,Predicted & Not Significant
+anger,Challenge,5,0.18,,No prediction & Not Significant
+anger,Expectedness,5,0,,Predicted & Not Significant
+anger,Loss,5,.27*,"The greater the perception that something irretrievable has been lost, the greater the anger",No prediction & Significant
+anger,Attentional activity,4,-0.04,,No prediction & Not Significant
+anger,Effort,4,.23***,"The greater the need to exert effort to deal with the situation, the greater the anger",Predicted & Supported
+anger,Difficulty,3,.24**,"The greater the perceived difficulty, the greater the anger ",No prediction & Significant
+anger,Helplessness,3,.30***,"The greater the perceived inability to improve the situation, the greater the anger",No prediction & Significant
+anger,Intentionality,3,0.08,,Predicted & Not Significant
+anger,Novelty,3,-0.16,,Predicted & Not Significant
+anger,Perceived Obstacle,3,.48***,"The greater the perception that an obstacle hampers the attainment of a desired goal, the greater the anger.",Predicted & Supported
+anger,Predictability,3,-.23*,"The greater the ability to predict what is going to occur in the future, the less the anger",No prediction & Significant
+anger,Uniqueness,3,-0.04,,No prediction & Not Significant
+anger,Control-circumstances,2,0.1,,No prediction & Not Significant
+anger,Harm,2,.36***,"The greater the perceived harm, the greater the anger",Predicted & Supported
+anger,Stability,2,-0.06,,No prediction & Not Significant
+anger,Easing of threat,1,-.29***,"The greater the perception that a threat or harm has been removed from the situation, the less the anger.",No prediction & Significant
+anger,Effortful success,1,-.26***,"The greater the perception that effort could make the situation better, the less the anger",No prediction & Significant
+anger,Evil character,1,.25***,"The greater the perception of others as dispositionally evil, the greater the anger.",No prediction & Significant
+anger,Globality,1,-0.1,,No prediction & Not Significant
+anger,Modifiability,1,-.34*,"The greater perception that the situation could be modified, the less the anger",No prediction & Significant
+anger,Negative likelihood,1,0.18,,No prediction & Not Significant
+anger,Normative significance (internal),1,.09**,"The greater the consistency of event to one’s ideals, the greater the anger",No prediction & Significant
+anger,Other-involved,1,0.11,,No prediction & Not Significant
+anger,Reality,1,-0.16,,No prediction & Not Significant
+anger,Safety,1,.15*,"The greater the perception that there is nothing is to be concerned about or needs to be done, the greater the anger",No prediction & Significant
+anger,Self-esteem decreased,1,-0.04,,No prediction & Not Significant
+anger,Severity,1,.28*,"The greater the perceived severity of consequence of a situation to one's well-being, the greater the anger",No prediction & Significant
+anger,Temporal distance,1,-0.03,,No prediction & Not Significant
+anger,Urgency,1,.55*,"The greater the need to immediately attend to the situation, the greater the anger ",No prediction & Significant
+anxiety,Control-self,33,-.32***,"The greater the control over situation, the less the anxiety",No prediction & Significant
+anxiety,Threat,32,.46***,"The greater the perceived imminent threat in the situation, the greater the anxiety",Predicted & Supported
+anxiety,Problem-focused coping potential,24,-.27***,"The greater the perceived ability to cope and adapt to the situation, the less the anxiety",No prediction & Significant
+anxiety,Value,17,-.21***,"The greater the perceived value of the situation to one's goals and desires, the less the anxiety",No prediction & Significant
+anxiety,Goal relevance,16,.17***,"The greater the perceived relevance of the situation to one's goals, the greater the anxiety",Predicted & Supported
+anxiety,Goal conduciveness,15,-.26***,"The greater the consistency of the situation with one’s goals, the less the anxiety",No prediction & Significant
+anxiety,Challenge,12,-0.01,,No prediction & Not Significant
+anxiety,Accountability-Other,11,0.05,,No prediction & Not Significant
+anxiety,Accountability-Self,10,.18**,"The greater the perceived personal responsibility of the cause of the situation, the greater the anxiety",No prediction & Significant
+anxiety,future expectancy,9,-.18***,"The greater the expectation that the situation will get better, the less the anxiety",No prediction & Significant
+anxiety,Emotion-focused coping potential,7,-.39***,"The greater the ability to emotionally cope and adapt to the situation, the less the anxiety",No prediction & Significant
+anxiety,Certainty,6,-.30***,"The greater the understanding of the situation, the less the anxiety",Predicted & Supported
+anxiety,Loss,4,.43***,"The greater the perception that something irretrievable has lost, the greater the anxiety",No prediction & Significant
+anxiety,Pleasantness,3,-.29*,"The greater the perceived pleasantness of situation, the less the situation",Predicted & Supported
+anxiety,Accountability-Circumstances,2,.21***,"The greater the attribution of situation to impersonal circumstances, the greater the anxiety",No prediction & Significant
+anxiety,Attentional activity,2 ,0.05,,No prediction & Not Significant
+anxiety,Control-Other,2,-.13**,"The greater the perception that other people/objects have control over the situation, the less the anxiety",No prediction & Significant
+anxiety,Difficulty,2,.33*,"The greater the perceived difficulty to achieve one's goals in a situation, the greater the anxiety",No prediction & Significant
+anxiety,Effort,2,.10*,"The greater the need to exert effort to deal with the situation, the greater the anxiety",No prediction & Significant
+anxiety,Expectedness,2,-0.14,,No prediction & Not Significant
+anxiety,Harm,2,.33***,"The greater the perceived harm, the greater the anxiety",No prediction & Significant
+anxiety,Novelty,2,.34***,"The greater the perceived novelty in the situation, the greater the anxiety",No prediction & Significant
+anxiety,Severity,2,.37*,"The greater the perceived severity of consequence of a situation to one's well-being, the greater the anxiety",Predicted & Supported
+anxiety,Concern for others,1 ,.28*,"The greater the concern for others' well-being in the situation, the greater the anxiety",No prediction & Significant
+anxiety,Control-Circumstances,1 ,-0.1,,No prediction & Not Significant
+anxiety,Easing of threat,1,-.16*,"The greater the perception that a threat or harm has been removed from the situation, the less the anxiety.",No prediction & Significant
+anxiety,Effortful success,1 ,-0.09,,No prediction & Not Significant
+anxiety,Fairness,1 ,-0.07,,Predicted & Not Significant
+anxiety,Globality,1 ,-0.09,,No prediction & Not Significant
+anxiety,Helplessness,1 ,.31*,"The greater the perceived inability to improve the situation, the greater the anxiety",No prediction & Significant
+anxiety,Intentionality,1 ,-.29***,"The greater the perceived intentionality of the cause of the event either by one or others, the less the anxiety",No prediction & Significant
+anxiety,Modifiability,1,0.05,,No prediction & Not Significant
+anxiety,Normative significance (external),1 ,0.03,,No prediction & Not Significant
+anxiety,Predictability,1,-.26***,"The greater the ability to predict what is going to occur in the future, the less the anxiety.",No prediction & Significant
+anxiety,Stability,1 ,-.15*,"The greater the perception that the situation is stable and permanent, the less the anxiety",No prediction & Significant
+boredom,Control-Self,22,-.33***,"The greater the perceived personal control and influence over the situation, the less the boredom",Predicted & Supported
+boredom,Value,22,-.40***,"The greater the perceived value of the situation to one's goals and desires, the less the boredom",Predicted & Supported
+boredom,Accountability-Other,6,.22***,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the boredom",No prediction & Significant
+boredom,Goal relevance,3,-.27***,"The greater the perceived relevance of the situation to one's goals, the less the boredom.",No prediction & Significant
+boredom,Goal conduciveness,2,-.33***,"The greater the consistency of the situation with one’s goals, the less the boredom",No prediction & Significant
+boredom,Problem-focused coping potential,2,0.08,,No prediction & Not Significant
+boredom,Threat,2,.14*,"The greater the perceived imminent threat in the situation, the greater the boredom",No prediction & Significant
+boredom,Accountability-Self,1,.15*,"The greater the perceived personal responsibility for the cause of the situation, the greater the boredom",No prediction & Significant
+boredom,Attentional activity,1,-.41*,"The greater the perceived need to take time/effort to attend to the situation further, the less the boredom",No prediction & Significant
+boredom,Concern for others,1,-.24*,"The greater the concern for others' well-being in the situation, the less the boredom",No prediction & Significant
+boredom,Expectedness,1,-.29*,"The greater the expectation of the occurrence of the situation, the less the boredom.",No prediction & Significant
+boredom,Helplessness,1,.21*,"The greater the perceived inability to improve the situation, the greater the boredom",No prediction & Significant
+boredom,Normative significance (External),1,-0.02,,No prediction & Not Significant
+boredom,Pleasantness,1,-.39*,"The greater the perceived pleasantness of situation, the less the boredom",No prediction & Significant
+boredom,Safety,1,.32*,"The greater the perception that there is nothing is to be concerned about or needs to be done, the greater the boredom",No prediction & Significant
+enjoyment,Control-Self,25,.42***,"The greater the perceived personal control and influence over the situation, the greater the enjoyment",Predicted & Supported
+enjoyment,Value,20,.48***,"The greater the perceived value of the situation to one's goals and desires, the greater the enjoyment",Predicted & Supported
+enjoyment,Problem-focused coping potential,3,.48***,"The greater the perceived ability to cope and adapt to the situation, the greater the enjoyment.",No prediction & Significant
+enjoyment,Expected success,1,.56**,"The greater the expectation to achieve one's goals, the greater the enjoyment",No prediction & Significant
+enjoyment,Expectedness,1,.24***,"The greater the expectation of the occurrence of the situation, the greater the enjoyment.",No prediction & Significant
+enjoyment,Goal conduciveness,1,.28***,"The greater the consistency of the situation with one’s goals, the greater the enjoyment",No prediction & Significant
+enjoyment,Goal relevance,1,.24*,"The greater the perceived relevance of the situation to one's goals, the greater the enjoyment.",No prediction & Significant
+fear,Threat,19,.47***,"The greater the perceived imminent threat in the situation, the greater the fear",Predicted & Supported
+fear,Control-Self,13,-.27***,"The greater the perceived personal control and influence over the situation, the less the fear",Predicted & Supported
+fear,Accountability-Other,12,0.07,,Predicted & Not Significant
+fear,Accountability-Self,11,.22*,"The greater the perceived personal responsibility for the cause of the situation, the greater the fear",No prediction & Significant
+fear,Goal relevance,11,.25***,"The greater the perceived relevance of the situation to one's goals, the greater the fear",Predicted & Supported
+fear,future expectancy,8,-0.06,,No prediction & Not Significant
+fear,Goal conduciveness,8,-0.11,,Predicted & Not Significant
+fear,Pleasantness,8,-.33***,"The greater the perceived pleasantness of situation, the less the fear",Predicted & Supported
+fear,Problem-focused coping potential,8,-.23***,"The greater the perceived ability to cope and adapt to the situation, the less the fear",No prediction & Significant
+fear,Certainty,6,-.24***,"The greater the understanding of the situation, the less the fear",Predicted & Supported
+fear,Attentional activity,5,.14*," The greater the perceived need to take time/effort to attend to the situation further, the greater the fear.",No prediction & Significant
+fear,Effort,5,.22***,"The greater the need to exert effort to deal with the situation, the greater the fear",Predicted & Supported
+fear,Fairness,5,-.16*," The greater the perceived fairness of the situation, the less the fear.",No prediction & Significant
+fear,Loss,5,.37***,"The greater the perception that something irretrievable has been lost, the greater the fear",No prediction & Significant
+fear,Predictability,4,-.24***,"The greater the ability to predict what is going to occur in the future, the less the fear.",Predicted & Supported
+fear,Accountability-Circumstances,3,.18***,"The greater the perception that impersonal circumstances were responsible for the situation, the greater the fear",No prediction & Significant
+fear,Concern for others,3,.15**,"The greater the concern for others' well-being in the situation, the greater the fear",No prediction & Significant
+fear,Expectedness,3,-0.09,,No prediction & Not Significant
+fear,Harm,3,.53***,"The greater the perceived harm, the greater the fear",Predicted & Supported
+fear,Perceived Obstacle,3,.33***,"The greater the perception that an obstacle hampers the attainment of a desired goal, the greater the fear.",Predicted & Supported
+fear,Challenge,2,0.31,,No prediction & Not Significant
+fear,Control-Other,2,0.04,,No prediction & Not Significant
+fear,Difficulty,2,.32*,"The greater the perceived difficulty to achieve one's goals in a situation, the greater the fear",No prediction & Significant
+fear,Emotion-focused coping potential,2,-.25*,"The greater the ability to emotionally cope and adapt to the situation, the less the fear",Predicted & Supported
+fear,Helplessness,2,.40***,"The greater the perceived inability to improve the situation, the greater the fear",No prediction & Significant
+fear,Intentionality,2,-0.13,,No prediction & Not Significant
+fear,Normative significance (internal),2,-0.01,,No prediction & Not Significant
+fear,Novelty,2,.28***,"The greater the perceived novelty in the situation, the greater the fear",No prediction & Significant
+fear,Uniqueness,2,-0.02,,No prediction & Not Significant
+fear,Control-Circumstances,1,.20*,"The greater the perception that impersonal circumstances have control over the situation, the greater the fear",Predicted & Supported
+fear,Easing of threat,1,-.16*,"The greater the perception that a threat or harm has been removed from the situation, the less the fear.",No prediction & Significant
+fear,Effortful success,1,-0.09,,No prediction & Not Significant
+fear,Evil character,1,-0.02,,No prediction & Not Significant
+fear,Globality,1,-0.09,,No prediction & Not Significant
+fear,Modifiability,1,-0.04,,No prediction & Not Significant
+fear,Negative likelihood,1,.25*,"The greater the perceived likelihood of each possible negative outcome occurring, the greater the fear.",No prediction & Significant
+fear,Normative significance (external),1,-.46***,"The greater the consistency of the situation with external and social norms, the less the fear.",No prediction & Significant
+fear,Other-involved,1,-0.01,,No prediction & Not Significant
+fear,Reality,1,-0.37,,No prediction & Not Significant
+fear,Self-Esteem decreased,1,0.33,,No prediction & Not Significant
+fear,Severity,1,.44*,"The greater the perceived severity of consequence of a situation to one's well-being, the greater the fear",No prediction & Significant
+fear,Stability,1,-.15*,"The greater the perception that the situation is stable and permanent, the less the fear",No prediction & Significant
+fear,Temporal distance,1,-.07*,"The greater the perceived temporal distance to a remembered past situation, the less the fear",No prediction & Significant
+guilt,Accountability-Self,21,.41***,"The greater the perceived personal responsibility for the cause of the situation, the greater the guilt",Predicted & Supported
+guilt,Accountability-Other,16,-0.01,,No prediction & Not Significant
+guilt,Goal relevance,11,0.06,,No prediction & Not Significant
+guilt,Fairness,10,-.07***,"The greater the perceived fairness of situation, the less the guilt",No prediction & Significant
+guilt,Threat,9,.22***,"The greater the perceived imminent threat in the situation, the greater the guilt",No prediction & Significant
+guilt,future expectancy,7,-0.003,,No prediction & Not Significant
+guilt,Control-Self,6,0.03,,No prediction & Not Significant
+guilt,Goal conduciveness,6,-.29***,"The greater the consistency of the situation with one’s goals, the less the guilt",Predicted & Supported
+guilt,Normative significance (external),4,-0.24,,No prediction & Not Significant
+guilt,Pleasantness,4,-0.17,,Predicted & Not Significant
+guilt,Problem-focused coping potential,4,-0.08,,No prediction & Not Significant
+guilt,Accountability-circumstances,3,.12*,"The greater the attribution of the situation to impersonal circumstances, the greater the guilt",No prediction & Significant
+guilt,Attentional activity,3,-0.08,,No prediction & Not Significant
+guilt,Certainty,3,-.38*,"The greater the understanding of the situation, the less the guilt",No prediction & Significant
+guilt,Emotion-focused coping potential,3,-.21***,"The greater the ability to emotionally cope and adapt to the situation, the less the guilt",No prediction & Significant
+guilt,Intentionality,3,0.03,,No prediction & Not Significant
+guilt,Loss,3,.38**,"The greater the perception that something irretrievable has been lost, the greater the guilt",No prediction & Significant
+guilt,Control-Other,2,-0.04,,No prediction & Not Significant
+guilt,Effort,2,.32***,"The greater the need to exert effort to deal with the situation, the greater the guilt",Predicted & Supported
+guilt,Expectedness,2,.12***,"The greater the expectation of the occurrence of the situation, the greater the guilt",No prediction & Significant
+guilt,Helplessness,2,.29*,"The greater the perceived inability to improve the situation, the greater the guilt",No prediction & Significant
+guilt,Stability,2,-0.08,,No prediction & Not Significant
+guilt,Value,2,-0.02,,No prediction & Not Significant
+guilt,Concern for others,1,.37**,"The greater the concern for others' well-being in the situation, the greater the guilt",No prediction & Significant
+guilt,Control-Circumstances,1,-.16*,"The greater the perception that impersonal circumstances have control over the situation, the less the guilt",No prediction & Significant
+guilt,Difficulty,1,-0.2,,No prediction & Not Significant
+guilt,Easing of threat,1,-.36***,"The greater the perception that a threat or harm has been removed from the situation, the less the guilt.",No prediction & Significant
+guilt,Effortful success,1,-.21***,"The greater the perception that effort could make the situation better, the less the guilt",No prediction & Significant
+guilt,Globality,1,-0.08,,No prediction & Not Significant
+guilt,Harm,1,0.2,,No prediction & Not Significant
+guilt,Normative significance (internal),1,.05**," The greater the consistency of the situation with one's ideals, the greater the guilt.",No prediction & Significant
+guilt,Novelty,1,.16*,"The greater the perceived novelty in the situation, the greater the guilt",No prediction & Significant
+guilt,Perceived obstacle,1,.33**,"The greater the perception that an obstacle hampers the attainment of a desired goal, the greater the guilt.",Predicted & Supported
+guilt,Predictability,1,-0.08,,No prediction & Not Significant
+guilt,Temporal distance,1,-0.02,,No prediction & Not Significant
+guilt,Uniqueness,1,-0.04,,No prediction & Not Significant
+joy,Goal conduciveness,12,.56***,"The greater the consistency of the situation with one's goals, the greater the joy.",Predicted & Supported
+joy,Control-self,11,.38***,"The greater the perceived control over the situation, the greater the joy.",Predicted & Supported
+joy,Goal relevance,10,0.14,,No prediction & Not Significant
+joy,Threat,10,-.23*,"The greater the perceived imminent threat in the situation, the less the joy.",No prediction & Significant
+joy,Accountability-other,8,0.01,,No prediction & Not Significant
+joy,Certainty,8,.32***,"The greater the understanding of the situation, the greater the joy.",Predicted & Supported
+joy,Fairness,7,.55***,"The greater the perceived fairness of the situation, the greater the joy.",Predicted & Supported
+joy,Pleasantness,7,.64***,"The greater the perceived pleasantness of the situation, the greater the joy.",Predicted & Supported
+joy,Accountability-self,6,.20**,"The greater the perceived personal responsibility of the cause of the situation, the greater the joy.",Predicted & Supported
+joy,Challenge,6,.23*,"The greater the perception of a future gain after overcoming an obstacle in the situation, the greater the joy.",Predicted & Supported
+joy,Problem-focused coping potential,5,.46***,"The greater the perceived ability to cope and adapt to the situation, the greater the joy.",No prediction & Significant
+joy,Accountability-circumstances,4,-0.05,,Predicted & Not Significant
+joy,Attentional activity,4,.19*,"The greater the perceived need to take time/effort to attend to the situation further, the greater the joy.",Predicted & Supported
+joy,Predictability,4,.19***,"The greater the ability to predict what is going to occur in the future, the greater the joy.",Predicted & Supported
+joy,Control-other,3,0.07,,No prediction & Not Significant
+joy,Effort,3,-.19***,"The greater the need to exert effort to deal with the situation, the less the joy",Predicted & Supported
+joy,future expectancy,3,.20***,"The greater the expectation that the situation will get better, the greater the joy",No prediction & Significant
+joy,Loss,3,-.38*,"The greater the perception that something irretrievable has been lost, the less the joy",No prediction & Significant
+joy,Novelty,3,-0.03,,No prediction & Not Significant
+joy,Perceived Obstacle,3,-.33**,"The greater the perception that an obstacle hampers the attainment of a desired goal, the less the joy",No prediction & Significant
+joy,Value,3,.52***,"The greater the perceived value of the situation to one's goals and desires, the greater the joy.",No prediction & Significant
+joy,Effortful success,2,.27**,"The greater the perception that effort could make the situation better, the greater the joy",No prediction & Significant
+joy,Normative significance (internal),2,.34***,"The greater the consistency of the situation with one’s values and ideals, the greater the joy",Predicted & Supported
+joy,Concern for others,1,-.15*,"The greater the concern for others' well-being in the situation, the less the joy",No prediction & Significant
+joy,Control-Circumstances,1,-0.04,,No prediction & Not Significant
+joy,Difficulty,1,-0.11,,No prediction & Not Significant
+joy,Easing of threat,1,.53***,"The greater the perception that a threat or harm has been removed from the situation, the greater the joy.",No prediction & Significant
+joy,Emotion-focused coping potential,1,.41***,"The greater the ability to emotionally cope and adapt to the situation, the greater the joy",No prediction & Significant
+joy,Globality,1,.21***,"The greater the perception that the event is relevant to all aspect of one’s life, the greater the joy",No prediction & Significant
+joy,Harm,1,-0.11,,No prediction & Not Significant
+joy,Intentionality,1,.43***,"The greater the perceived intentionality of the cause of the event either by one or others, the greater the joy",No prediction & Significant
+joy,Normative significance (external),1,.29***,"The greater the consistency of the situation with external and social norms, the greater the joy",Predicted & Supported
+joy,Remarkable,1,.42***,"The greater the feeling that it was remarkable to have gotten this outcome, the greater the joy.",No prediction & Significant
+joy,Safety,1,.34***,"The greater the perception that there is nothing is to be concerned about or needs to be done, the greater the joy",No prediction & Significant
+joy,Stability,1,.15*,"The greater the perception that the situation is stable and permanent, the greater the joy",No prediction & Significant
+joy,Temporal distance,1,-.11***,"The greater the perceived temporal distance to remembered past situation, the less the joy",No prediction & Significant
+joy,Uniqueness,1,.08**,"The greater the perception of how unique the situation was, the greater the joy",No prediction & Significant
+pride,Accountability-Self,10,.39***,"The greater the perceived personal responsibility for the cause of the situation, the greater the pride",Predicted & Supported
+pride,Control-Self,10,.19***,"The greater the perceived personal control and influence over the situation, the greater the pride",Predicted & Supported
+pride,Accountability-Other,8,-0.05,,No prediction & Not Significant
+pride,Value,8,.32***,"The greater the perceived value of the situation to one's goals and desires, the greater the pride.",Predicted & Supported
+pride,Accountability-Circumstances,5,-0.01,,No prediction & Not Significant
+pride,Goal conduciveness,5,.48**,"The greater the consistency of the situation with one’s goals, the greater the pride",Predicted & Supported
+pride,Problem-focused coping potential,5,.47***,"The greater the perceived ability to cope and adapt to the situation, the greater the pride",No prediction & Significant
+pride,Pleasantness,4,.20*,"The greater the perceived pleasantness of situation, the greater the pride",Predicted & Supported
+pride,Certainty,3,.23**,"The greater the understanding of the situation, the greater the pride",Predicted & Supported
+pride,Control-Other,3,0,,No prediction & Not Significant
+pride,Goal relevance,3,0.06,,Predicted & Not Significant
+pride,Loss,3,-0.37,,No prediction & Not Significant
+pride,Predictability,3,.13**,"The greater the ability to predict what is going to occur in the future, the greater the pride",Predicted & Supported
+pride,Attentional activity,2,.16*,"The greater the perceived need to take time/effort to attend to the situation further, the greater the pride",No prediction & Significant
+pride,Control-Circumstances,2,-0.04,,No prediction & Not Significant
+pride,Effort,2,.16*,"The greater the need to exert effort to deal with the situation, the greater the pride",No prediction & Significant
+pride,Emotion-focused coping potential,2,.31*,"The greater the ability to emotionally cope and adapt to the situation, the greater the pride",No prediction & Significant
+pride,Fairness,2,0.13,,No prediction & Not Significant
+pride,future expectancy,2,.23***,"The greater the expectation that the situation will get better, the greater the pride",No prediction & Significant
+pride,Intentionality,2,0.28,,No prediction & Not Significant
+pride,Stability,2,0.07,,No prediction & Not Significant
+pride,Threat,2,-0.24,,No prediction & Not Significant
+pride,Difficulty,1,0.18,,No prediction & Not Significant
+pride,Easing of threat,1,.52***,"The greater the perception that a threat or harm has been removed from the situation, the greater the pride.",No prediction & Significant
+pride,Effortful success,1,.41***,"The greater the perception that effort could make the situation better, the greater the pride.",No prediction & Significant
+pride,Globality,1,.22***,"The greater the perception that the event is relevant to all aspect of one’s life, the greater the pride",No prediction & Significant
+pride,Normative significance (external),1,-0.06,,No prediction & Not Significant
+pride,Normative significance (internal),1,0.08,,Predicted & Not Significant
+pride,Novelty,1,-.28***,"The greater the perceived novelty in the situation, the less the pride",Predicted & Supported
+pride,Perceived Obstacle,1,0.05,,No prediction & Not Significant
+pride,Temporal distance,1,-.15***,"The greater the perceived temporal distance to remembered past situation, the less the pride",No prediction & Significant
+pride,Uniqueness,1,.11***,"The greater the perception of how unique the situation was, the greater the pride",No prediction & Significant
+sadness,Accountability-Other,15,.11*,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the sadness",Predicted & Supported
+sadness,Threat,14,.33***,"The greater the perceived imminent threat in the situation, the greater the sadness",No prediction & Significant
+sadness,Accountability-Self,13,.14*,"The greater the perceived personal responsibility for the cause of the situation, the greater the sadness",No prediction & Significant
+sadness,Control-Self,12,-.19***,"The greater the perceived personal control and influence over the situation, less sadness",Predicted & Supported
+sadness,Goal relevance,11,.32***,"The greater the perceived relevance of the situation to one's goals, the greater the sadness",Predicted & Supported
+sadness,Problem-focused coping potential,11,-0.08,,Predicted & Not Significant
+sadness,future expectancy,9,-0.09,,Predicted & Not Significant
+sadness,Goal conduciveness,9,-.31**,"The greater the consistency of the situation with one’s goals, the less the sadness",Predicted & Supported
+sadness,Pleasantness,8,-.45***,"The greater the perceived pleasantness of situation, the less the sadness",Predicted & Supported
+sadness,Loss,6,.42***,"The greater the perception that something irretrievable has been lost, the greater the sadness",Predicted & Supported
+sadness,Certainty,5,-.29***,"The greater the understanding of the situation, the less the sadness",Predicted & Supported
+sadness,Expectedness,4,0.14,,No prediction & Not Significant
+sadness,Accountability-Circumstances,3,.13***,"The greater the perception that impersonal circumstances were responsible for the situation, the greater the sadness",Predicted & Supported
+sadness,Attentional activity,3,.16**,"The greater the perceived need to take time/effort to attend to the situation further, the greater the sadness",No prediction & Significant
+sadness,Effort,3,.19***,"The greater the need to exert effort to deal with the situation, the greater the sadness",No prediction & Significant
+sadness,Emotion-focused coping potential,3,-.30**,"The greater the ability to emotionally cope and adapt to the situation, the less the sadness",Predicted & Supported
+sadness,Helplessness,3,.49***,"The greater the perceived inability to improve the situation, the greater the sadness",Predicted & Supported
+sadness,Predictability,2,-.27***,"The greater the ability to predict what is going to occur in the future, the less the sadness",No prediction & Significant
+sadness,Challenge,2,0.09,,No prediction & Not Significant
+sadness,Control-Circumstances,2,.34**,"The greater the perception that impersonal circumstances have control over the situation, the greater the sadness",No prediction & Significant
+sadness,Effortful success,2,-.24***,"The greater the perception that effort could make the situation better, the less the sadness",No prediction & Significant
+sadness,Normative significance (external),2,-.47*,"The greater the consistency of the situation with external and social norms, the less the sadness",No prediction & Significant
+sadness,Novelty,2,.30***,"The greater the perceived novelty in the situation, the greater the sadness. ",No prediction & Significant
+sadness,Perceived obstacle,2,.39***,"The greater the perception that an obstacle hampers the attainment of a desired goal, the greater the sadness.",No prediction & Significant
+sadness,Uniqueness,2,0.06,,No prediction & Not Significant
+sadness,Concern for others,1,0.13,,No prediction & Not Significant
+sadness,Control-Other,1,-0.07,,Predicted & Not Significant
+sadness,Difficulty,1,.41***,"The greater the perceived difficulty to achieve one's goals in a situation, the greater the sadness",No prediction & Significant
+sadness,Easing of threat,1,-.36***,"The greater the perception that a threat or harm has been removed from the situation, the less the sadness.",No prediction & Significant
+sadness,Fairness,1,-.45***,"The greater the perceived fairness of situation, the less the sadness",No prediction & Significant
+sadness,Globality,1,-0.07,,No prediction & Not Significant
+sadness,Intentionality,1,-.41***,"The greater the perceived intentionality of the cause of the event either by one or others, the less the sadness",No prediction & Significant
+sadness,Modifiability,1,-0.1,,No prediction & Not Significant
+sadness,Negative likelihood,1,.24*,"The greater the perceived likelihood of each possible negative outcome occurring, the greater the sadness.",No prediction & Significant
+sadness,Normative significance (internal),1,.18***,"The greater the consistency of the situation with one’s values and ideals, the greater the sadness",No prediction & Significant
+sadness,Other-involved,1,.63**,"The greater the perception that others’ well-being is involved, the greater the sadness",No prediction & Significant
+sadness,Reality,1,-.53*,"The greater the perception that is situation is real and had already occurred, the less the sadness",No prediction & Significant
+sadness,Self-Esteem decreased,1,0.25,,No prediction & Not Significant
+sadness,Stability,1,-0.12,,No prediction & Not Significant
+sadness,Temporal distance,1,-0.04,,No prediction & Not Significant
+sadness,Urgency,1,.45***,"The greater the need to immediately attend to the situation, the greater the sadness.",Predicted & Opposite
+shame,Accountability-Self,11,.38***,"The greater the perceived personal responsibility for the cause of the situation, the greater the shame",Predicted & Supported
+shame,Accountability-Other,8,-0.05,,No prediction & Not Significant
+shame,Control-Self,8,-.22*," The greater the perceived control over the situation, the less the shame.",Predicted & Supported
+shame,Fairness,8,-.12*,"The greater the perceived fairness of situation, the less the shame",No prediction & Significant
+shame,Value,6,-0.19,,Predicted & Not Significant
+shame,Normative significance (External),5,-0.21,,Predicted & Not Significant
+shame,Goal relevance,4,-0.09,,Predicted & Not Significant
+shame,Problem-focused coping potential,4,-.25*," The greater the perceived ability to cope and adapt to the situation, the less the shame.",No prediction & Significant
+shame,Goal conduciveness,3,-.21***,"The greater the consistency of the situation with one’s goals, the less the shame",Predicted & Supported
+shame,Threat,3,.52***,"The greater the perceived imminent threat in the situation, the greater the shame",No prediction & Significant
+shame,Accountability-Circumstances,2,0.05,,No prediction & Not Significant
+shame,Expectedness,2,-0.08,,No prediction & Not Significant
+shame,future expectancy,2,-.44***,"The greater the expectation that the situation will get better, the less the shame",No prediction & Significant
+shame,Loss,2,.23***,"The greater the perception that something irretrievable has been lost, the greater the shame",No prediction & Significant
+shame,Pleasantness,2,-.20***,"The greater the perceived pleasantness of situation, the less the shame",Predicted & Supported
+shame,Control-Other,1,-0.03,,No prediction & Not Significant
+shame,Difficulty,1,.47***,,No prediction & Significant
+shame,Effort,1,0.04,,No prediction & Not Significant
+shame,Emotion-focused coping potential,1,-0.06,,No prediction & Not Significant
+shame,Helplessness,1,.18*,"The greater the perceived inability to improve the situation, the greater the shame",No prediction & Significant
+shame,Intentionality,1,.31**,"The greater the perception that others caused the event intentionally, the greater the shame",No prediction & Significant
+shame,Normative significance (internal),1,.09***,"The greater the consistency of the situation with one’s values and ideals, the greater the shame",No prediction & Significant
+shame,Stability,1,0.04,,Predicted & Not Significant
+shame,Temporal distance,1,0,,No prediction & Not Significant
+shame,Uniqueness,1,-0.04,,No prediction & Not Significant
+admiration,Attainability,3,0.03,,No prediction & Not Significant
+admiration,Closeness,3,.16***,"The greater the perception of closeness of the relationship to another person, the greater the admiration",No prediction & Significant
+admiration,Desire for object,3,.12***,"The greater the desire for something another person has, the greater the admiration",No prediction & Significant
+admiration,Fairness,3,.23**,"The greater the perceived fairness of situation, the greater the admiration",Predicted & Supported
+admiration,Liking,2,.37***,"The greater the liking for another person, the greater the admiration",No prediction & Significant
+admiration,Pleasantness,1,.42***,"The greater the perceived pleasantness of situation, the greater the admiration",Predicted & Supported
+affection,Goal conduciveness,3,.37**,"The greater the consistency of the situation with one’s goals, the greater the affection",Predicted & Supported
+affection,Control-Self,2,.23***,"The greater the perceived personal control and influence over the situation, the greater the affection",No prediction & Significant
+affection,Pleasantness,2,.57***,"The greater the perceived pleasantness of situation, the greater the affection",Predicted & Supported
+affection,Predictability,2,.12*,"The greater the ability to predict what is going to occur in the future, the greater the affection",No prediction & Significant
+affection,Accountability-Circumstances,1,0.01,,No prediction & Not Significant
+affection,Accountability-Other,1,.20**,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the affection",Predicted & Supported
+affection,Accountability-Self,1,.32***,"The greater the perceived personal responsibility for the cause of the situation, the greater the affection",No prediction & Significant
+affection,Effort,1,-0.14,,Predicted & Not Significant
+affection,Fairness,1,.43***,"The greater the perceived fairness of situation, the greater the affection",No prediction & Significant
+affection,Goal relevance,1,.59***,"The greater the perceived relevance of the situation to one's goals, the greater the affection",Predicted & Supported
+affection,Harm,1,-.66***,"The greater the perceived harm, the less the affection",No prediction & Significant
+affection,Normative significance (internal),1,.60***,"The greater the consistency of the situation with one’s values and ideals, the greater the affection",No prediction & Significant
+affection,Threat,1,-.61***,"The greater the perceived imminent threat in the situation, the less the affection",No prediction & Significant
+amusement,Accountability-Self,2,-0.03,,No prediction & Not Significant
+amusement,Accountability-Circumstances,1,0,,No prediction & Not Significant
+amusement,Accountability-Other,1,0.06,,Predicted & Not Significant
+amusement,Attentional activity,1,.10*,"The greater the perceived need to take time/effort to attend to the situation further, the greater the amusement",No prediction & Significant
+amusement,Certainty,1,.15**,"The greater the understanding of the situation, the greater the amusement",Predicted & Supported
+amusement,Control-Circumstances,1,0,,No prediction & Not Significant
+amusement,Control-Other,1,0.05,,No prediction & Not Significant
+amusement,Control-Self,1,0.08,,No prediction & Not Significant
+amusement,Effort,1,-0.08,,No prediction & Not Significant
+amusement,Normative significance (internal),1,0.06,,Predicted & Not Significant
+amusement,Perceived Obstacle,1,-0.06,,Predicted & Not Significant
+amusement,Pleasantness,1,.32***,"The greater the pleasantness, the greater the amusement",Predicted & Supported
+amusement,Predictability,1,0.08,,No prediction & Not Significant
+apathy,Accountability-Other,1 ,.32**,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the apathy",No prediction & Significant
+apathy,Attentional activity,1,-.36***,"The greater the perceived need to take time/effort to attend to the situation further, the less the apathy",No prediction & Significant
+apathy,Certainty,1,-0.03,,No prediction & Not Significant
+apathy,Difficulty,1,-0.03,,No prediction & Not Significant
+apathy,Effort,1,-.22*,"The greater the need to exert effort to deal with the situation, the less the apathy",No prediction & Significant
+apathy,Fairness,1,-0.05,,No prediction & Not Significant
+apathy,Goal relevance,1,-0.19,,No prediction & Not Significant
+apathy,Perceived obstacle,1,0.02,,No prediction & Not Significant
+apathy,Pleasantness,1,-.23*,"The greater the perceived pleasantness of situation, the less the apathy",No prediction & Significant
+awe,Pleasantness,2,.28*,"The greater the perceived pleasantness of situation, the greater the awe",Predicted & Supported
+awe,Accountability-Circumstances,1,0.05,,Predicted & Not Significant
+awe,Accountability-Other,1,0.06,,Predicted & Not Significant
+awe,Accountability-Self,1,0.07,,Predicted & Not Significant
+awe,Attentional activity,1 ,0.06,,Predicted & Not Significant
+awe,Certainty,1,0.05,,No prediction & Not Significant
+awe,Control-Circumstances,1,0.04,,No prediction & Not Significant
+awe,Control-Other,1,0.06,,No prediction & Not Significant
+awe,Control-Self,1,0.03,,No prediction & Not Significant
+awe,Effort,1,0.01,,No prediction & Not Significant
+awe,Loss,1,-.09**,"The greater the perception that something irretrievable has been lost, the less the awe",No prediction & Significant
+awe,Normative significance (internal),1,0.04,,No prediction & Not Significant
+awe,Perceived Obstacle,1,0.02,,No prediction & Not Significant
+awe,Predictability,1,0.03,,No prediction & Not Significant
+awe,Temporal distance,1,-.16*,"The greater the perceived temporal distance to remembered past situation, the less the awe",No prediction & Significant
+awe,Uniqueness,1,.16*,"The greater the perception of how unique the situation was, the greater the awe",No prediction & Significant
+bitter,Accountability-Other,3,.14*,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the bitterness",No prediction & Significant
+bitter,Accountability-Circumstances,2,-0.11,,No prediction & Not Significant
+bitter,Accountability-Self,2,-0.12,,No prediction & Not Significant
+bitter,Control-Other,2,0.07,,No prediction & Not Significant
+bitter,Loss,1,.50***,"The greater the perception that something irretrievable has lost, the greater the bitterness",No prediction & Significant
+bitter,Pleasantness,1,-.36***,"The greater the perceived pleasantness of situation, the less the bitterness",No prediction & Significant
+bitter,Temporal distance,1,-.07*,"The greater the perceived temporal distance to remembered past situation, the less the bitterness",No prediction & Significant
+bitter,Uniqueness,1,0,,No prediction & Not Significant
+challenge,Attentional activity,4,.21***,"The greater the perceived need to take time/effort to attend to the situation further, the greater the feeling of challenge",Predicted & Supported
+challenge,Certainty,4,0.12,,No prediction & Not Significant
+challenge,Accountability-Other,3,-0.04,,No prediction & Not Significant
+challenge,Accountability-Self,3,0.01,,Predicted & Not Significant
+challenge,Effort,3,.29***,"The greater the need to exert effort to deal with the situation, the greater the feeling of challenge",Predicted & Supported
+challenge,Goal relevance,3,.26***,"The greater the perceived relevance of the situation to one's goals, the greater the feeling of challenge",Predicted & Supported
+challenge,Pleasantness,3,0.17,,Predicted & Not Significant
+challenge,Control-Circumstances,2,0,,No prediction & Not Significant
+challenge,future expectancy,2,0.09,,Predicted & Not Significant
+challenge,Goal conduciveness,2,0.05,,Predicted & Not Significant
+challenge,Perceived Obstacle,2,0.12,,No prediction & Not Significant
+challenge,Accountability-Circumstances,1,.11*,"The greater the perception that impersonal circumstances were responsible for the situation, the greater the feeling of challenge",No prediction & Significant
+challenge,Concern for others,1,0.17,,No prediction & Not Significant
+challenge,Control-Other,1 ,0.07,,No prediction & Not Significant
+challenge,Control-Self,1 ,0.04,,Predicted & Not Significant
+challenge,Difficulty,1 ,-0.01,,No prediction & Not Significant
+challenge,Emotion-focused coping potential,1 ,0.06,,No prediction & Not Significant
+challenge,Fairness,1 ,.28*,"The greater the perceived fairness of situation, the greater the feeling of challenge",No prediction & Significant
+challenge,Harm,1 ,0.05,,No prediction & Not Significant
+challenge,Normative significance (internal),1 ,0.05,,No prediction & Not Significant
+challenge,Predictability,1 ,-0.05,,No prediction & Not Significant
+challenge,Problem-focused coping potential,1 ,.25**,"The greater the perceived ability to cope and adapt to the situation, the greater the feeling of challenge",Predicted & Supported
+challenge,Threat,1 ,0.13,,No prediction & Not Significant
+comfortable,Pleasantness,1,.53***,"The greater the perceived pleasantness of situation, the greater the comfort",No prediction & Significant
+compassion,Accountability-Other,4,-0.1,,Predicted & Not Significant
+compassion,Control-Other,2,-0.04,,No prediction & Not Significant
+compassion,Fairness,2,-0.08,,No prediction & Not Significant
+compassion,Normative significance (external),2,.36***,"The greater the consistency of the situation with external and social norms, the greater the compassion",Predicted & Supported
+compassion,Goal relevance,1,.18*,"The greater the perceived relevance of the situation to one's goals, the greater the compassion",No prediction & Significant
+confident,Accountability-Self,4,0.29,,Predicted & Not Significant
+confident,Accountability-Other,3,-0.01,,No prediction & Not Significant
+confident,Accountability-Circumstances,2,-0.11,,No prediction & Not Significant
+confident,Threat,2,0.02,,No prediction & Not Significant
+confident,Attentional activity,1,0.23,,No prediction & Not Significant
+confident,Certainty,1,.30**,"The greater the understanding of the situation, the greater the confidence",Predicted & Supported
+confident,Challenge,1,.24**,"The greater the perception of a future gain after overcoming an obstacle in the situation, the greater the confidence",Predicted & Supported
+confident,Goal conduciveness,1,.37***,"The greater the consistency of the situation with one’s goals, the greater the confidence",No prediction & Significant
+confident,Harm,1,0.04,,No prediction & Not Significant
+confident,Normative significance (external),1,.32*,"The greater the consistency of the situation with external and social norms, the greater the confidence",No prediction & Significant
+confident,Pleasantness,1,.67***,"The greater the perceived pleasantness of situation, the greater the confidence",Predicted & Supported
+confusion,Accountability-Self,1,.40**,"The greater the perceived personal responsibility for the cause of the situation, the greater the confusion",No prediction & Significant
+contempt,Goal conduciveness,2,-0.17,,No prediction & Not Significant
+contempt,Loss,2,.29***,"The greater the perception that something irretrievable has been lost, the greater the contempt.",No prediction & Significant
+contempt,Pleasantness,2,-.47***,"The greater the perceived pleasantness of situation, the less the contempt",Predicted & Supported
+contempt,Uniqueness,2,0,,No prediction & Not Significant
+contempt,Accountability-Other,1,.24***,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the contempt",Predicted & Supported
+contempt,Accountability-Self,1,0.04,,No prediction & Not Significant
+contempt,Goal relevance,1,0.09,,No prediction & Not Significant
+contempt,Temporal distance,1,0,,No prediction & Not Significant
+contentment,Accountability-Circumstances,4,-0.02,,No prediction & Not Significant
+contentment,Accountability-Other,4,0.04,,No prediction & Not Significant
+contentment,Accountability-Self,4,.29***,"The greater the perceived personal responsibility for the cause of the situation, the greater the contentment",Predicted & Supported
+contentment,Control-Self,4,.27***,"The greater the perceived personal control and influence over the situation, the greater the contentment",Predicted & Supported
+contentment,Pleasantness,3,0.36,,Predicted & Not Significant
+contentment,Attentional activity,1,.16**,"The greater the perceived need to take time/effort to attend to the situation further, the greater the contentment",No prediction & Significant
+contentment,Certainty,1,.25***,"The greater the understanding of the situation, the greater the contentment",Predicted & Supported
+contentment,Control-Circumstances,1,-0.06,,No prediction & Not Significant
+contentment,Control-Other,1,-0.03,,No prediction & Not Significant
+contentment,Effort,1,-.12*,"The greater the need to exert effort to deal with the situation, the less the contentment",Predicted & Supported
+contentment,Loss,1,-.35***,"The greater the perception that something irretrievable has been lost, the less the contentment",No prediction & Significant
+contentment,Normative significance (internal),1,.22***,"The greater the consistency of the situation with one’s values and ideals, the greater the contentment",Predicted & Supported
+contentment,Perceived Obstacle,1,-.11*,"The greater the perception that an obstacle hampers the attainment of a desired goal, the less the contentment",Predicted & Supported
+contentment,Predictability,1,.20***,"The greater the ability to predict what is going to occur in the future, the greater the contentment",No prediction & Significant
+contentment,Temporal distance,1,-.07*,"The greater the perceived temporal distance to remembered past situation, the less the contentment",No prediction & Significant
+contentment,Uniqueness,1,.08**,"The greater the perception of how unique the situation was, the greater the contentment",No prediction & Significant
+contentment,Value,1,.17***,"The greater the perceived value of the situation to one's goals and desires, the greater the contentment",Predicted & Supported
+curious,Accountability-self,1,-0.01,,No prediction & Not Significant
+curious,Attentional activity,1,0.23,,No prediction & Not Significant
+curious,Concern for others,1,-0.15,,No prediction & Not Significant
+curious,future expectancy,1,0.01,,No prediction & Not Significant
+curious,Goal conduciveness,1,0.01,,No prediction & Not Significant
+curious,Goal relevance,1,.37**,"The greater the perceived relevance of the situation to one's goals, the greater the curiosity.",No prediction & Significant
+curious,Harm,1,0.01,,No prediction & Not Significant
+curious,Threat,1,0.05,,No prediction & Not Significant
+disappointment,Uniqueness,2,-0.01,,No prediction & Not Significant
+disappointment,Accountability-Other,1,0.34,,Predicted & Not Significant
+disappointment,Certainty,1,0.02,,No prediction & Not Significant
+disappointment,Control-Self,1,0.15,,No prediction & Not Significant
+disappointment,Effort,1,0.28,,No prediction & Not Significant
+disappointment,Expectedness,1,-0.18,,Predicted & Not Significant
+disappointment,Goal conduciveness,1,-.30*,"The greater the consistency of the situation with one’s goals, the less the disappointment",Predicted & Supported
+disappointment,Loss,1,.44***,"The greater the perception that something irretrievable has been lost, the greater the disappointment",No prediction & Significant
+disappointment,Modifiability,1,-0.13,,No prediction & Not Significant
+disappointment,Novelty,1,0.44,,No prediction & Not Significant
+disappointment,Other-involved,1,0.41,,No prediction & Not Significant
+disappointment,Pleasantness,1,-.40***,"The greater the perceived pleasantness of situation, the less the disappointment",No prediction & Significant
+disappointment,Predictability,1,-0.19,,Predicted & Not Significant
+disappointment,Reality,1,-0.35,,No prediction & Not Significant
+disappointment,Self-Esteem decreased,1,0.08,,No prediction & Not Significant
+disappointment,Temporal distance,1,0,,No prediction & Not Significant
+disgust,Threat,4,.47***,"The greater the perceived imminent threat in the situation, the greater the disgust",Predicted & Supported
+disgust,Goal conduciveness,3,.15*,"The greater the consistency of the situation with one’s goals, the greater the disgust",No prediction & Significant
+disgust,Goal relevance,3,.34***,"The greater the perceived relevance of the situation to one's goals, the greater the disgust",No prediction & Significant
+disgust,Pleasantness,3,-.20***,"The greater the perceived pleasantness of situation, the less the disgust",Predicted & Supported
+disgust,Fairness,2,-.19*,"The greater the perceived fairness of situation, the less the disgust",No prediction & Significant
+disgust,future expectancy,2,0.2,,No prediction & Not Significant
+disgust,Loss,2,0.04,,No prediction & Not Significant
+disgust,Uniqueness,2,-.09**,,No prediction & Significant
+disgust,Accountability-Other,1,.39***,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the disgust",Predicted & Supported
+disgust,Accountability-Self,1,-0.1,,No prediction & Not Significant
+disgust,Attentional activity,1,.23***,"The greater the perceived need to take time/effort to attend to the situation further, the greater the disgust",No prediction & Significant
+disgust,Control-Other,1,.18**," The greater the perception that other people/objects have control over the situation, the greater the disgust.",No prediction & Significant
+disgust,Emotion-focused coping potential,1,0.03,,No prediction & Not Significant
+disgust,Expectedness,1,.11***,"The greater the expectation of the occurrence of the situation, the greater the disgust",No prediction & Significant
+disgust,Normative significance (external),1,-.38***,"The greater the consistency of the situation with external and social norms, the less the disgust.",No prediction & Significant
+disgust,Normative significance (internal),1,.09**,"The greater the consistency of the situation with one’s values and ideals, the greater the disgust",No prediction & Significant
+disgust,Problem-focused coping potential,1,-0.06,,No prediction & Not Significant
+disgust,Temporal distance,1,0.04,,No prediction & Not Significant
+distrust,Harm,1,.61***,"The greater the perceived harm, the greater the distrust",No prediction & Significant
+distrust,Pleasantness,1 ,-.58***,"The greater the perceived pleasantness of situation, the less the distrust",No prediction & Significant
+distrust,Threat,1,.60***,"The greater the perceived imminent threat in the situation, the greater the distrust",No prediction & Significant
+embarrassment,Accountability-Self,2,.47***,"The greater the perceived personal responsibility for the cause of the situation, the greater the embarassment",Predicted & Supported
+embarrassment,Accountability-Other,1,-.23**,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the less the embarassment",No prediction & Significant
+embarrassment,Attentional activity,1,0.18,,No prediction & Not Significant
+embarrassment,Concern for others,1,0.03,,No prediction & Not Significant
+embarrassment,future expectancy,1,-0.13,,No prediction & Not Significant
+embarrassment,Goal conduciveness,1 ,-0.05,,No prediction & Not Significant
+embarrassment,Goal relevance,1,-0.02,,No prediction & Not Significant
+embarrassment,Harm,1 ,0.23,,No prediction & Not Significant
+embarrassment,Loss,1,.16***,"The greater the perception that something irretrievable has lost, the greater the embarrassment",No prediction & Significant
+embarrassment,Pleasantness,1,-.26***,"The greater the perceived pleasantness of situation, the less the embarrassment",No prediction & Significant
+embarrassment,Temporal distance,1,0.04,,No prediction & Not Significant
+embarrassment,Threat,1,.32**,"The greater the perceived imminent threat in the situation, the greater the embarrassment",No prediction & Significant
+embarrassment,Uniqueness,1,-.08**,"The greater the perception of how unique the situation was, the less the embarrassment",No prediction & Significant
+empathy,Accountability-Self,1,0.08,,No prediction & Not Significant
+empathy,Attentional activity,1,0.24,,No prediction & Not Significant
+empathy,Concern for others,1,.32**,"The greater the concern for others' well-being in the situation, the greater the empathy",Predicted & Supported
+empathy,Control-Other,1,-.39***,"The greater the perception that other people/objects have control over the situation, the less the empathy",No prediction & Significant
+empathy,future expectancy,1,0.08,,No prediction & Not Significant
+empathy,Goal conduciveness,1,0.07,,No prediction & Not Significant
+empathy,Goal relevance,1,0.16,,No prediction & Not Significant
+empathy,Harm,1,0.18,,No prediction & Not Significant
+empathy,Loss,1,.16***,"The greater the perception that something irretrievable has lost, the greater the empathy",No prediction & Significant
+empathy,Pleasantness,1,-.15***,"The greater the perceived pleasantness of situation, the less the empathy",No prediction & Significant
+empathy,Temporal distance,1,-.11***,"The greater the perceived temporal distance to remembered past situation, the less the empathy",No prediction & Significant
+empathy,Threat,1,-0.08,,No prediction & Not Significant
+empathy,Uniqueness,1,0.04,,No prediction & Not Significant
+enthusiasm,Loss,1,-.22***,"The greater the perception that something irretrievable has lost, the less the enthusiasm",No prediction & Significant
+enthusiasm,Pleasantness,1,.67***,"The greater the perceived pleasantness of situation, the greater the enthusiasm",No prediction & Significant
+enthusiasm,Temporal distance,1,-.17***,"The greater the perceived temporal distance to remembered past situation, the less the enthusiasm",No prediction & Significant
+enthusiasm,Uniqueness,1,.06*,"The greater the perception of how unique the situation was, the greater the enthusiasm",No prediction & Significant
+envy,Fairness,6,0.001,,Predicted & Not Significant
+envy,Attainability,3,.06*,"The greater the perception that one could obtain what one desires, the greater the envy",No prediction & Significant
+envy,Closeness,3,.10*,"The greater the perception of closeness of the relationship to another person, the greater the envy",No prediction & Significant
+envy,Desire for object,3,.06*,"The greater the desire for something another person has, the greater the envy",Predicted & Supported
+envy,Liking,2,0.04,,No prediction & Not Significant
+envy,Control-Self,1,.40***,"The greater the perceived personal control and influence over the situation, the greater the envy",Predicted & Supported
+excitement,Challenge,4,.39***,"The greater the perception of a future gain after overcoming an obstacle in the situation, the greater the excitement",Predicted & Supported
+excitement,Threat,4,-.19**,"The greater the perception of an imminent threat in situation, the less the excitement",No prediction & Significant
+excitement,Control-Self,3,.43***,"The greater the perceived personal control and influence over the situation, the greater the excitement",Predicted & Supported
+excitement,Problem-focused coping potential,2,.24***,"The greater the perceived ability to cope and adapt to the situation, the greater the excitement",No prediction & Significant
+excitement,Value,2,.44**,"The greater the perceived value of the situation to one's goals and desires, the greater the excitement",No prediction & Significant
+excitement,Novelty,1,-.56***,"The greater the perceived novelty in the situation, the less the excitement",No prediction & Significant
+frustration,Goal conduciveness,5,-.30***,"The greater the consistency of the situation with one’s goals, the less the frustration",Predicted & Supported
+frustration,Control-Self,4,-0.11,,Predicted & Not Significant
+frustration,Fairness,3,-.53***,"The greater the perceived fairness of situation, the less the frustration",No prediction & Significant
+frustration,Value,2,0.04,,No prediction & Not Significant
+frustration,Accountability-Other,1,0.06,,No prediction & Not Significant
+frustration,Accountability-Self,1,.36**,"The greater the perceived personal responsibility of the cause of the situation, the greater the frustration",No prediction & Significant
+frustration,Goal relevance,1,.14**,"The greater the perceived relevance of the situation to one's goals, the greater the frustration",No prediction & Significant
+frustration,Predictability,1,-.24***,"The greater the ability to predict what is going to occur in the future, the less the frustration",No prediction & Significant
+frustration,Problem-focused coping potential,1,-.45***,"The greater the perceived ability to cope and adapt to the situation, the less the frustration",Predicted & Supported
+frustration,Threat,1,.30***,"The greater the perceived imminent threat in the situation, the greater the frustration",No prediction & Significant
+gladness,future expectancy,4,.34***,"The greater the expectation that the situation will get better, the greater the gladness",Predicted & Supported
+gladness,Goal conduciveness,2,.34***,"The greater the consistency of the situation with one’s goals, the greater the gladness",Predicted & Supported
+gladness,Goal relevance,2,.34***,"The greater the perceived relevance of the situation to one's goals, the greater the gladness",Predicted & Supported
+gladness,Problem-focused coping potential,2,0.12,,No prediction & Not Significant
+gratitude,Accountability-Self,9,.20***,"The greater the perceived personal responsibility for the cause of the situation, the greater the gratitude",No prediction & Significant
+gratitude,Accountability-Other,8,.26**,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the gratitude",Predicted & Supported
+gratitude,Accountability-Circumstances,5,0.04,,No prediction & Not Significant
+gratitude,Goal conduciveness,5,.43***,"The greater the consistency of the situation with one’s goals, the greater the gratitude",Predicted & Supported
+gratitude,Certainty,3,.20***,"The greater the understanding of the situation, the greater the gratitude",No prediction & Significant
+gratitude,Pleasantness,3,0.26,,Predicted & Not Significant
+gratitude,Problem-focused coping potential,3,.21***,"The greater the perceived ability to cope and adapt to the situation, the greater the gratitude",No prediction & Significant
+gratitude,Fairness,2,.28***,"The greater the perceived fairness of situation, the greater the gratitude",No prediction & Significant
+gratitude,Goal relevance,2,.15*,"The greater the perceived relevance of the situation to one's goals, the greater the gratitude",Predicted & Supported
+gratitude,Attentional activity,1,0.08,,No prediction & Not Significant
+gratitude,Control-Circumstances,1,0.03,,No prediction & Not Significant
+gratitude,Control-Other,1,0.06,,No prediction & Not Significant
+gratitude,Control-Self,1,0.07, ,No prediction & Not Significant
+gratitude,Effort,1,-0.01,,No prediction & Not Significant
+gratitude,Emotion-focused coping potential,1,.23**,"The greater the ability to emotionally cope and adapt to the situation, the greater the gratitude",No prediction & Significant
+gratitude,future expectancy,1,.39***,"The greater the expectation that the situation will get better, the greater the gratitude",No prediction & Significant
+gratitude,Loss,1,-.19***,"The greater the perception that something irretrievable has been lost, the less the gratitude",No prediction & Significant
+gratitude,Normative significance (internal),1,0.08, ,Predicted & Not Significant
+gratitude,Perceived Obstacle,1,0.01,,No prediction & Not Significant
+gratitude,Predictability,1,0.06,,No prediction & Not Significant
+gratitude,Temporal distance,1,-.08**,"The greater the perceived temporal distance to remembered past situation, the less the gratitude",No prediction & Significant
+gratitude,Uniqueness,1,.16***,"The greater the perception of how unique the situation was, the greater the gratitude",No prediction & Significant
+homesickness,Loss,1,.28*,"The greater the perception that something irretrievable has been lost, the greater the homesickness",No prediction & Significant
+homesickness,Pleasantness,1,.09*,"The greater the perceived pleasantness of situation, the greater the homesickness",No prediction & Significant
+homesickness,Temporal distance,1,0.02,,No prediction & Not Significant
+homesickness,Uniqueness,1,0.02,,No prediction & Not Significant
+hope,Goal relevance,9,.18***,"The greater the perceived relevance of the situation to one's goals, the greater the hope",Predicted & Supported
+hope,future expectancy,8,.32***,"The greater the expectation that the situation will get better, the greater the hope",Predicted & Supported
+hope,Goal conduciveness,8,.32***,"The greater the consistency of the situation with one’s goals, the greater the hope",Predicted & Opposite
+hope,Control-Self,7,.32***,"The greater the perceived personal control and influence over the situation, the greater the hope",No prediction & Significant
+hope,Threat,7,-0.05,,No prediction & Not Significant
+hope,Problem-focused coping potential,6,.43***,"The greater the perceived ability to cope and adapt to the situation, the greater the hope",No prediction & Significant
+hope,Value,6,.36***,"The greater the perceived value of the situation to one's goals and desires, the greater the hope.",Predicted & Supported
+hope,Accountability-Other,5,0.01,,No prediction & Not Significant
+hope,Accountability-Self,5,0.04,,No prediction & Not Significant
+hope,Attentional activity,4,.17***,"The greater the perceived need to take time/effort to attend to the situation further, the greater the hope",Predicted & Supported
+hope,Certainty,4,.27***,"The greater the understanding of the situation, the greater the hope",Predicted & Opposite
+hope,Attainability,3,0.12,,No prediction & Not Significant
+hope,Control-Other,3,0.04,,No prediction & Not Significant
+hope,Effort,3,0.04,,Predicted & Not Significant
+hope,Loss,3,-.44**,"The greater the perception that something irretrievable has been lost, the less the hope",No prediction & Significant
+hope,Perceived Obstacle,3,-0.03,,Predicted & Not Significant
+hope,Pleasantness,3,.32***,"The greater the perceived pleasantness of situation, the greater the hope",Predicted & Supported
+hope,Severity,3,0.08,,No prediction & Not Significant
+hope,Accountability-Circumstances,2,-0.04,,No prediction & Not Significant
+hope,Effortful success,2,.51***,"The greater the perception that effort could make the situation better, the greater the hope",No prediction & Significant
+hope,Emotion-focused coping potential,2,.24***,"The greater the ability to emotionally cope and adapt to the situation, the greater the hope",No prediction & Significant
+hope,Predictability,2,.14*,"The greater the ability to predict what is going to occur in the future, the greater the hope",Predicted & Opposite
+hope,Stability,2,0.06,,No prediction & Not Significant
+hope,Challenge,1,.63***,"The greater the perception of a future gain after overcoming an obstacle in the situation, the greater the hope",Predicted & Supported
+hope,Concern for others,1,-0.14,,No prediction & Not Significant
+hope,Control-Circumstances,1,0.08,,No prediction & Not Significant
+hope,Difficulty,1,-0.01,,No prediction & Not Significant
+hope,Easing of threat,1,.56***,"The greater the perception that a threat or harm has been removed from the situation, the greater the hope.",No prediction & Significant
+hope,Expectedness,1,.15*,"The greater the expectation of the occurrence of the situation, the greater the hope",No prediction & Significant
+hope,Fairness,1,.28*,"The greater the perceived fairness of situation, the greater the hope",No prediction & Significant
+hope,Globality,1,.22***,"The greater the perception that the event is relevant to all aspect of one’s life, the greater the hope",No prediction & Significant
+hope,Harm,1,-0.19,,No prediction & Not Significant
+hope,Helplessness,1,-.36***,"The greater the perceived inability to improve the situation, the less the hope",No prediction & Significant
+hope,Intentionality,1,.43***,"The greater the perceived intentionality of the cause of the event either by one or others, the greater the hope",No prediction & Significant
+hope,Normative significance (internal),1,.12**,"The greater the extent of one’s expectation of right/wrong were satisfied, the greater the hope",No prediction & Significant
+hope,Novelty,1,-.28***,"The greater the perceived novelty in the situation, the less the hope",No prediction & Significant
+hope,Safety,1,.16*,"The greater the perception that there is nothing is to be concerned about or needs to be done, the greater the hope",No prediction & Significant
+hope,Temporal distance,1,.08**," The greater the perceived temporal distance to a remembered past situation, the greater the hope.",No prediction & Significant
+hope,Uniqueness,1,0,,No prediction & Not Significant
+inspiration,Goal conduciveness,1,.31*,"The greater the consistency of the situation with one’s goals, the greater the inspiration",Predicted & Supported
+interest,Attentional activity,3,.27***,"The greater the perceived need to take time/effort to attend to the situation further, the greater the interest",Predicted & Supported
+interest,Accountability-Self,2,0.15,,No prediction & Not Significant
+interest,Control-Circumstances,2,0.04,,No prediction & Not Significant
+interest,Control-Self,2,.38**,"The greater the perceived personal control and influence over the situation, the greater the interest",Predicted & Supported
+interest,Goal relevance,2,.27***,"The greater the perceived relevance of the situation to one's goals, the greater the interest",Predicted & Supported
+interest,Pleasantness,2,.71***,"The greater the perceived pleasantness of situation, the greater the interest",Predicted & Supported
+interest,Problem-focused coping potential,2,.44***,"The greater the perceived ability to cope and adapt to the situation, the greater the interest",Predicted & Supported
+interest,Threat,2,0.11,,No prediction & Not Significant
+interest,Accountability-Circumstances,1,-0.03,,No prediction & Not Significant
+interest,Accountability-Other,1,0.05,,No prediction & Not Significant
+interest,Certainty,1,.27***,"The greater the understanding of the situation, the greater the interest",Predicted & Supported
+interest,Challenge,1,.55***,"The greater the perception of a future gain after overcoming an obstacle in the situation, the greater the interest",No prediction & Significant
+interest,Concern for others,1,-.28*,"The greater the concern for others' well-being in the situation, the less the interest",No prediction & Significant
+interest,Control-Other,1,0.04,,No prediction & Not Significant
+interest,Effort,1,0.03,,No prediction & Not Significant
+interest,future expectancy,1,0.17,,No prediction & Not Significant
+interest,Goal conduciveness,1,.32**,"The greater the consistency of the situation with one’s goals, the greater the interest",No prediction & Significant
+interest,Harm,1,-0.06,,No prediction & Not Significant
+interest,Normative significance (internal),1,.16**,"The greater the consistency of the situation with one’s values and ideals, the greater the interest",No prediction & Significant
+interest,Novelty,1,0.04,,Predicted & Not Significant
+interest,Perceived Obstacle,1,0.02,,No prediction & Not Significant
+interest,Predictability,1,.16**,"The greater the ability to predict what is going to occur in the future, the greater the interest",No prediction & Significant
+irritation,Control-Self,1,.31*,"The greater the perceived personal control and influence over the situation, the greater the irritation",No prediction & Significant
+irritation,Pleasantness,1,-.38*,"The greater the perceived pleasantness of situation, the less the irritation",No prediction & Significant
+jealousy,Accountability-Circumstances,1 ,0.11,,No prediction & Not Significant
+jealousy,Accountability-Other,1 ,0.08,,Predicted & Not Significant
+jealousy,Accountability-Self,1 ,-0.05,,No prediction & Not Significant
+jealousy,Attentional activity,1,.12*,"The greater the perceived need to take time/effort to attend to the situation further, the greater the jealousy",No prediction & Significant
+jealousy,Control-Self,1 ,-.21***,"The greater the perceived personal control and influence over the situation, the less the jealousy",Predicted & Supported
+jealousy,Effort,1 ,.21***,"The greater the need to exert effort to deal with the situation, the greater the jealousy",No prediction & Significant
+jealousy,Fairness,1 ,-.38***,"The greater the perceived fairness of situation, the less the jealousy",No prediction & Significant
+jealousy,Goal relevance,1 ,.24***,"The greater the perceived relevance of the situation to one's goals, the greater the jealousy",No prediction & Significant
+jealousy,Perceived obstacle,1 ,.45***,"The greater the perception that an obstacle hampers the attainment of a desired goal, the greater the jealousy.",Predicted & Supported
+jealousy,Pleasantness,1 ,-.37***,"The greater the perceived pleasantness of situation, the less the jealousy",Predicted & Supported
+jealousy,Predictability,1 ,-.35***,"The greater the ability to predict what is going to occur in the future, the less the jealousy",Predicted & Supported
+loneliness,Loss,1 ,.45***,"The greater the perception that something irretrievable has lost, the greater the loneliness",No prediction & Significant
+loneliness,Pleasantness,1 ,-.19***,"The greater the perceived pleasantness of situation, the less the feelings of loneliness",No prediction & Significant
+loneliness,Temporal distance,1 ,0,,No prediction & Not Significant
+loneliness,Uniqueness,1 ,-0.02,,No prediction & Not Significant
+longing,Loss,1 ,.30***,"The greater the perception that something irretrievable has lost, the greater the longing",No prediction & Significant
+longing,Pleasantness,1 ,.33***,"The greater the perceived pleasantness of situation, the greater the feelings of longing",No prediction & Significant
+longing,Temporal distance,1 ,-.10***,"The greater the perceived temporal distance to remembered past situation, the less the longing",No prediction & Significant
+longing,Uniqueness,1 ,.07*,"The greater the perception of how unique the situation was, the greater the longing",No prediction & Significant
+love,Certainty,5,.26***,"The greater the understanding of the situation, the greater the love",Predicted & Supported
+love,Goal conduciveness,5,.51***,"The greater the consistency of the situation with one’s goals, the greater the love",No prediction & Significant
+love,Pleasantness,4,.42***,"The greater the perceived pleasantness of situation, the greater the love",Predicted & Supported
+love,Accountability-Other,3,.16***,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the love",Predicted & Supported
+love,Accountability-Self,3,0.14,,No prediction & Not Significant
+love,Fairness,3,.41***,"The greater the perceived fairness of situation, the greater the love",No prediction & Significant
+love,Normative significance (internal),3,.37**,"The greater the consistency of the situation with one’s values and ideals, the greater the love",No prediction & Significant
+love,Accountability-Circumstances,2,0.03,,No prediction & Not Significant
+love,Control-Self,2 ,.11**,"The greater the perceived personal control and influence over the situation, the greater the love",No prediction & Significant
+love,Effort,2,-0.07,,Predicted & Not Significant
+love,Loss,2,0.13,,No prediction & Not Significant
+love,Predictability,2 ,0.06,,No prediction & Not Significant
+love,Problem-focused coping potential,2,.35***,"The greater the perceived ability to cope and adapt to the situation, the greater the love",No prediction & Significant
+love,Attentional activity,1 ,.10*,"The greater the perceived need to take time/effort to attend to the situation further, the greater the love",Predicted & Supported
+love,Concern for others,1 ,.21**,"The greater the concern for others' well-being in the situation, the greater the love",No prediction & Significant
+love,Control-Circumstances,1 ,0.03,,No prediction & Not Significant
+love,Control-Other,1 ,0.09,,No prediction & Not Significant
+love,Effortful success,1,.26***,"The greater the perception that effort could make the situation better, the greater the love.",No prediction & Significant
+love,future expectancy,1 ,.31***,"The greater the beliefs that the event will turn out better in future, the greater the love",No prediction & Significant
+love,Goal relevance,1 ,.59***,"The greater the perceived relevance of the situation to one's goals, the greater the love",No prediction & Significant
+love,Helplessness,1 ,-.16*,"The greater the perceived inability to improve the situation, the less the love",No prediction & Significant
+love,Normative significance (external),1 ,.22***,"The greater the consistency of the situation with external and social norms, the greater the love",No prediction & Significant
+love,Novelty,1 ,.29***,"The greater the novelty, the greater the love",No prediction & Significant
+love,Perceived Obstacle,1 ,-0.01,,No prediction & Not Significant
+love,Temporal distance,1 ,-.17***,"The greater the perceived temporal distance to remembered past situation, the less the love",No prediction & Significant
+love,Uniqueness,1 ,.18***,"The greater the perception of how unique the situation was, the greater the love",No prediction & Significant
+nostalgia,Loss,1 ,.09**,"The greater the perception that something irretrievable has been lost, the greater the nostalgia",Predicted & Supported
+nostalgia,Pleasantness,1 ,.36***,"The greater the perceived pleasantness of situation, the greater the nostalgia",Predicted & Supported
+nostalgia,Temporal distance,1 ,.06*,"The greater the perceived temporal distance to remembered past situation, the greater the nostalgia",No prediction & Significant
+nostalgia,Uniqueness,1 ,.12***,"The greater the perception of how unique the situation was, the greater the nostalgia",No prediction & Significant
+pity,Accountability-Other,2,-.33*,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the less the pity",Predicted & Supported
+pity,Fairness,2,-0.09,,No prediction & Not Significant
+pity,Threat,2,.10*,"The greater the perceived imminent threat in the situation, the greater the pity",Predicted & Supported
+pity,Pleasantness,1,.30*,"The greater the perceived pleasantness of situation, the greater the pity",No prediction & Significant
+pity,Accountability-Circumstances,1 ,0.02,,Predicted & Not Significant
+pity,Accountability-Self,1 ,-0.03,,No prediction & Not Significant
+playfulness,Certainty,1,.26*,"The greater the understanding of the situation, the greater the playfulness.",No prediction & Significant
+pleasure,Control-Self,1 ,.28*,"The greater the perceived personal control and influence over the situation, the greater the pleasure",No prediction & Significant
+psyched-up,Accountability-Other,1 ,-0.15,,No prediction & Not Significant
+psyched-up,Attentional activity,1 ,0.25,,No prediction & Not Significant
+psyched-up,Normative significance (external),1 ,0.17,,No prediction & Not Significant
+psyched-up,Pleasantness,1 ,.36*,"The greater the perceived pleasantness of situation, the greater the feeling of psyched-up",No prediction & Significant
+psyched-up,Threat,1 ,.27*,"The greater the perceived imminent threat in the situation, the greater the feelings of psyched-up",No prediction & Significant
+regret,Accountability-Other,5,-0.09,,No prediction & Not Significant
+regret,Accountability-Self,5,.42***,"The greater the perceived personal responsibility for the cause of the situation, the greater the regret",Predicted & Supported
+regret,Fairness,3,0.1,,No prediction & Not Significant
+regret,Accountability-Circumstances,2,-.20*,"The greater the perception that impersonal circumstances were responsible for the situation, the less the regret",No prediction & Significant
+regret,Normative significance (external),2,-.45***,"The greater the consistency of the situation with external and social norms, the less the regret.",Predicted & Supported
+regret,Pleasantness,2,-.38***,"The greater the perceived pleasantness of situation, the less the regret",Predicted & Supported
+regret,Control-Circumstances,1,-0.08,,No prediction & Not Significant
+regret,Control-Self,1,0.21,,Predicted & Not Significant
+regret,Effort,1,.34**,"The greater the need to exert effort to deal with the situation, the greater the regret",Predicted & Supported
+regret,Goal relevance,1,0.07,,No prediction & Not Significant
+regret,Loss,1,.30***,"The greater the perception that something irretrievable has been lost, the greater the regret",No prediction & Significant
+regret,Perceived obstacle,1,0.19,,No prediction & Not Significant
+regret,Predictability,1,-0.01,,No prediction & Not Significant
+regret,Temporal distance,1,0.01,,No prediction & Not Significant
+regret,Uniqueness,1,-0.02,,No prediction & Not Significant
+relief,Accountability-Other,4,0,,No prediction & Not Significant
+relief,Accountability-Self,4,.24***,"The greater the perceived personal responsibility for the cause of the situation, the greater the relief",No prediction & Significant
+relief,Control-Self,4,.15*,"The greater the perceived personal control and influence over the situation, the greater the relief",No prediction & Significant
+relief,Goal conduciveness,4,.45***,"The greater the consistency of the situation with one’s goals, the greater the relief",Predicted & Supported
+relief,Problem-focused coping potential,3,0.23, ,No prediction & Not Significant
+relief,Accountability-Circumstances,2,-0.03,,Predicted & Not Significant
+relief,Certainty,2,.19***,"The greater the understanding of the situation, the greater the relief",Predicted & Supported
+relief,Control-Other,2,0,,No prediction & Not Significant
+relief,Emotion-focused coping potential,2,.30***,"The greater the ability to emotionally cope and adapt to the situation, the greater the relief",No prediction & Significant
+relief,future expectancy,2,.30***,"The greater the expectation that the situation will get better, the greater the relief",No prediction & Significant
+relief,Goal relevance,2,0.04,,No prediction & Not Significant
+relief,Loss,2,-.40**,"The greater the perception that something irretrievable has been lost, the less the relief",No prediction & Significant
+relief,Pleasantness,2,.19***,"The greater the perceived pleasantness of situation, the greater the relief",Predicted & Supported
+relief,Predictability,2,.10*,"The greater the ability to predict what is going to occur in the future, the greater the relief",No prediction & Significant
+relief,Value,2,.17***,"The greater the perceived value of the situation to one's goals and desires, the greater the relief.",No prediction & Significant
+relief,Attentional activity,1,.09**,"The greater the perceived need to take time/effort to attend to the situation further, the greater the relief",No prediction & Significant
+relief,Control-Circumstances,1,0.02,,Predicted & Not Significant
+relief,Easing of threat,1,.69***,"The greater the perception that a threat or harm has been removed from the situation, the greater the relief.",No prediction & Significant
+relief,Effort,1,0,,Predicted & Not Significant
+relief,Effortful success,1,.50***,"The greater the perception that effort could make the situation better, the greater the relief",No prediction & Significant
+relief,Globality,1,.13*,"The greater the perception that the event is relevant to all aspect of one’s life, the greater the relief",No prediction & Significant
+relief,Intentionality,1,.31***,"The greater the perceived intentionality of the cause of the event either by one or others, the greater the relief",No prediction & Significant
+relief,Normative significance (internal),1,.13**,"The greater the consistency of the situation with one’s values and ideals, the greater the relief",No prediction & Significant
+relief,Novelty,1,-.25***,"The greater the novelty, the less the relief",No prediction & Significant
+relief,Perceived Obstacle,1,0,,No prediction & Not Significant
+relief,Stability,1,0,,No prediction & Not Significant
+relief,Temporal distance,1,-.10***,"The greater the perceived temporal distance to remembered past situation, the less the relief",No prediction & Significant
+relief,Threat,1,-.34***,"The greater the perceived imminent threat in the situation, the less the relief",No prediction & Significant
+relief,Uniqueness,1,.07*,"The greater the perception of how unique the situation was, the greater the relief",No prediction & Significant
+resignation,Attentional activity,1 ,-0.12,,No prediction & Not Significant
+resignation,Control-Circumstances,1 ,.13*,"The greater the perception that impersonal circumstances have control over the situation, the greater the resignation",No prediction & Significant
+resignation,Effort,1 ,-.13*,"The greater the need to exert effort to deal with the situation, the less the resignation",No prediction & Significant
+resignation,Perceived obstacle,1 ,.16*,"The greater the perception that an obstacle hampers the attainment of a desired goal, the greater the resignation.",No prediction & Significant
+resignation,Pleasantness,1 ,-0.1,,No prediction & Not Significant
+resignation,Predictability,1 ,.20**,"The greater the ability to predict what is going to occur in the future, the greater the resignation",No prediction & Significant
+schadenfreude,Accountability-Other,2,.26***,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the feelings of schadenfreude",No prediction & Significant
+schadenfreude,Fairness,2,.27***,"The greater the perceived fairness of situation, the greater the feelings of schadenfreude",Predicted & Supported
+schadenfreude,Normative significance (external),2,.12*,"The greater the consistency of the situation with external and social norms, the greater the feelings of schadenfreude",No prediction & Significant
+schadenfreude,Goal relevance,1,-0.1,,No prediction & Not Significant
+self-anger,Accountability-Circumstances,2,-0.09,,No prediction & Not Significant
+self-anger,Accountability-Other,2,-.48**,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the less the self-anger.",No prediction & Significant
+self-anger,Accountability-Self,2,.53***,"The greater the perceived personal responsibility of the cause of the situation, the greater the self-anger.",Predicted & Supported
+self-pity,Loss,1 ,.38*,"The greater the perception that something irretrievable has lost, the greater the self-pity",No prediction & Significant
+self-pity,Pleasantness,1 ,-.20*,"The greater the perceived pleasantness of situation, the less the self-pity",No prediction & Significant
+self-pity,Temporal distance,1 ,0.01,,No prediction & Not Significant
+self-pity,Uniqueness,1 ,-0.05,,No prediction & Not Significant
+serenity,Accountability-Self,2,.20***,"The greater the perceived personal responsibility for the cause of the situation, the greater the serenity",No prediction & Significant
+serenity,Certainty,2,.24*,"The greater the understanding of the situation, the greater the serenity",Predicted & Supported
+serenity,Pleasantness,2,.42***,"The greater the perceived pleasantness of situation, the greater the serenity",Predicted & Supported
+serenity,Accountability-Circumstances,1 ,-0.04,,No prediction & Not Significant
+serenity,Accountability-Other,1 ,-0.04,,No prediction & Not Significant
+serenity,Attentional activity,1 ,0.06,,No prediction & Not Significant
+serenity,Concern for others,1 ,-.17*,"The greater the concern for others' well-being in the situation, the less the serenity",No prediction & Significant
+serenity,Control-Circumstances,1 ,-0.04,,No prediction & Not Significant
+serenity,Control-Other,1 ,-0.05,,No prediction & Not Significant
+serenity,Control-Self,1 ,.11*,"The greater the perceived personal control and influence over the situation, the greater the serenity",Predicted & Supported
+serenity,Effort,1 ,-.13**,"The greater the need to exert effort to deal with the situation, the less the serenity",Predicted & Supported
+serenity,Effortful success,1,0.14,,No prediction & Not Significant
+serenity,Expectedness,1 ,0.14,,No prediction & Not Significant
+serenity,future expectancy,1 ,.29***,"The greater the expectation that the situation will get better, the greater the serenity",No prediction & Significant
+serenity,Goal conduciveness,1,-.18*,"The greater the consistency of the situation with one's goals, the less the serenity.",No prediction & Significant
+serenity,Goal relevance,1,-.31***,"The greater the perceived relevance of the situation to one's goals, the less the serenity",No prediction & Significant
+serenity,Loss,1 ,-.34***,"The greater the perception that something irretrievable has been lost, the less the serenity",No prediction & Significant
+serenity,Normative significance (internal),1 ,.12*,"The greater the consistency of the situation with one’s values and ideals, the greater the serenity",Predicted & Supported
+serenity,Perceived Obstacle,1 ,-.10*,"The greater the perception that an obstacle hampers the attainment of a desired goal, the less the serenity",Predicted & Supported
+serenity,Predictability,1 ,.10*,"The greater the ability to predict what is going to occur in the future, the greater the serenity",Predicted & Supported
+serenity,Safety,1 ,.34***,"The greater the perception that there is nothing is to be concerned about or needs to be done, the greater the serenity",Predicted & Supported
+serenity,Temporal distance,1 ,-0.02,,No prediction & Not Significant
+serenity,Uniqueness,1 ,0.04,,No prediction & Not Significant
+surprise,Accountability-Other,2,.22***,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the surprise",No prediction & Significant
+surprise,Certainty,2,-.30***,"The greater the understanding of the situation, the less the surprise",Predicted & Supported
+surprise,Expectedness,2,-.49***,"The greater the expectation of the occurrence of the situation, the less the surprise",Predicted & Supported
+surprise,Pleasantness,2,0.17,,Predicted & Not Significant
+surprise,Attentional activity,1,.44***,"The greater the perceived need to take time/effort to attend to the situation further, the greater the surprise",Predicted & Supported
+surprise,Concern for others,1,.23**,"The greater the concern for others' well-being in the situation, the greater the surprise",No prediction & Significant
+surprise,Goal conduciveness,1,.29***,"The greater the consistency of the situation with one’s goals, the greater the surprise",No prediction & Significant
+surprise,Goal relevance,1,.41***,"The greater the perceived relevance of the situation to one's goals, the greater the surprise",Predicted & Supported
+surprise,Helplessness,1,.23**,"The greater the perceived inability to improve the situation, the greater the surprise",No prediction & Significant
+surprise,Normative significance (external),1,.20***,"The greater the consistency of the situation with external and social norms, the greater the surprise",No prediction & Significant
+surprise,Normative significance (internal),1,.29***,"The greater the consistency of the situation with one’s values and ideals, the greater the surprise",No prediction & Significant
+surprise,Novelty,1,.35***,"The greater the novelty, the greater the surprise",Predicted & Supported
+surprise,Predictability,1,-.27***,"The greater the ability to predict what is going to occur in the future, the less the surprise.",Predicted & Supported
+sympathy,Accountability-Other,2,0.05,,No prediction & Not Significant
+sympathy,Control-Other,2 ,-0.03,,No prediction & Not Significant
+sympathy,Certainty,1,-0.11,,No prediction & Not Significant
+sympathy,Concern for others,1 ,.54*,"The greater the concern for others' well-being in the situation, the greater the sympathy",No prediction & Significant
+sympathy,Expectedness,1 ,-.23*,"The greater the expectation of the occurrence of the situation, the less the sympathy",No prediction & Significant
+sympathy,Goal conduciveness,1,.19*,"The greater the consistency of the situation with one's goals, the greater the sympathy.",No prediction & Significant
+sympathy,Helplessness,1 ,.25*,"The greater the perceived inability to improve the situation, the greater the sympathy",No prediction & Significant
+sympathy,Loss,1 ,.27*,"The greater the perception that something irretrievable has been lost, the greater the sympathy",No prediction & Significant
+sympathy,Pleasantness,1,-.31*,"The greater the perceived pleasantness of situation, the less the sympathy",No prediction & Significant
+sympathy,Temporal distance,1 ,-0.04,,No prediction & Not Significant
+sympathy,Threat,1 ,.15*,"The greater the perceived imminent threat in the situation, the greater the sympathy",No prediction & Significant
+sympathy,Uniqueness,1 ,0,,No prediction & Not Significant
+tenderness,Loss,1 ,0.01,,No prediction & Not Significant
+tenderness,Pleasantness,1 ,.41*,"The greater the perceived pleasantness of situation, the greater the tenderness",No prediction & Significant
+tenderness,Temporal distance,1 ,-.15*,"The greater the perceived temporal distance to remembered past situation, the less the tenderness",No prediction & Significant
+tenderness,Uniqueness,1 ,.19*,"The greater the perception of how unique the situation was, the greater the tenderness",No prediction & Significant
+unfriendly,Accountability-Circumstances,2,0.07,,No prediction & Not Significant
+unfriendly,Accountability-Other,2,.20*,"The greater the perceived responsibility for the cause of the situation attributed to other people/objects, the greater the feelings of unfriendliness",No prediction & Significant
+unfriendly,Accountability-Self,2,-0.09,,No prediction & Not Significant
+unlucky,Accountability-Circumstances,2,.35***,"The greater the perception that impersonal circumstances were responsible for the situation, the greater the feelings of unluckiness",No prediction & Significant
+unlucky,Accountability-Other,2,0.06,,No prediction & Not Significant
+unlucky,Accountability-Self,2,-0.08,,No prediction & Not Significant
+worry,Problem-focused coping potential,9,-.28***,"The greater the perceived ability to cope and adapt to the situation, the less the worry",No prediction & Significant
+worry,Certainty,6,-0.23,,Predicted & Not Significant
+worry,Goal relevance,6,.38***,"The greater the perceived relevance of the situation to one's goals, the greater the worry",No prediction & Significant
+worry,Threat,6,.36***,"The greater the perceived imminent threat in the situation, the greater the worry",Predicted & Supported
+worry,Accountability-Other,5,0.08,,No prediction & Not Significant
+worry,future expectancy,5,0.14,,No prediction & Not Significant
+worry,Accountability-Self,3,0.02,,Predicted & Not Significant
+worry,Challenge,3,-.24***,"The greater the perception of a future gain after overcoming an obstacle in the situation, the less the worry",No prediction & Significant
+worry,Control-Self,3,-0.08,,No prediction & Not Significant
+worry,Difficulty,3,.39***,"The greater the perceived difficulty to achieve one's goals in a situation, the greater the worry",No prediction & Significant
+worry,Goal conduciveness,3,-.28***,"The greater the consistency of the situation with one’s goals, the less the worry",Predicted & Supported
+worry,Control-Other,2,-0.1,,No prediction & Not Significant
+worry,Emotion-focused coping potential,2,-.13***,"The greater the ability to emotionally cope and adapt to the situation, the less the worry",No prediction & Significant
+worry,Fairness,2,-.24*,"The greater the perceived fairness of situation, the less the worry",No prediction & Significant
+worry,Accountability-Circumstances,1,-0.03,,No prediction & Not Significant
