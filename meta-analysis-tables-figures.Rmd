@@ -1,0 +1,1490 @@
+---
+title: "Associations Between Cognitive Appraisals and Emotions: A Meta-Analytic Review (Tables and Figures)"
+author: "Gerard Yeo & Desmond Ong"
+date: "1 June 2024"
+output:
+  html_document:
+    theme: darkly
+    highlight: tango
+    df_print: paged
+    code_folding: hide
+  html_notebook:
+    toc: yes
+    toc_depth: '3'
+fontsize: 16pt
+---
+
+
+```{r preamble, echo=T, message=F, warning=F}
+# import libraries for meta-analysis
+library(metaSEM)
+library(mvmeta)
+library(metafor)
+library(tidyverse)
+library(psych) # to convert z to r using fisherz2r(meta_df$b[1])
+library(bslib)
+library(pander)
+
+my_theme <-  theme_bw() + theme(legend.position="top",
+                                strip.background = element_rect(fill="#FFFFFF"), 
+                                strip.text = element_text(size=12), 
+                                axis.text = element_text(size=12),
+                                axis.title.x = element_text(size=14, vjust=-0.2),
+                                axis.title.y = element_text(size=14, vjust=0.8),
+                                legend.text = element_text(size=12),
+                                title = element_text(size=18, vjust=1),
+                                panel.grid = element_blank())
+
+```
+
+This code is an accompaniment to the following paper:
+
+Yeo, G. C., & Ong, D. C. (to appear). Associations Between Cognitive Appraisals and Emotions: A Meta-Analytic Review. <i>Psychological Bulletin</i>.
+
+The GitHub repository can be found at: https://github.com/desmond-ong/appraisal-meta-analysis
+
+and a link to the R Shiny application is: https://desmond-ong.shinyapps.io/meta-analysis-code/
+
+
+This file contains code to reproduce the tables and figures in the paper.
+
+
+
+```{r read-in-data-and-cleaning, echo=T, message=F, warning=F}
+## -- This chunk reads in the data and defines the emotions/appraisals -- ##
+
+data <- read.csv('meta-analysis_data.csv',header=T) %>%
+  filter(included=="yes") %>%
+  droplevels() %>%
+  mutate(Appraisal_Raw = Appraisal)
+
+### --- Cleaning emotions and appraisals ---- ####
+# 47 appraisals, 63 emotions
+
+LIST_OF_EMOTIONS_Short = c("anger", "anxiety", "boredom", "enjoyment", "fear", 
+                           "guilt", "joy", "pride", "sadness", "shame")
+LIST_OF_EMOTIONS_Long = c(
+  "admiration", "affection", "amusement", "apathy", "awe", 
+  "bitter", "challenge", "comfortable", "compassion", "confident", 
+  "confusion", "contempt", "contentment", "curious", "disappointment", 
+  "disgust", "distrust", "embarrassment", "empathy", "enthusiasm", 
+  "envy", "excitement", "frustration", "gladness", "gratitude", 
+  "homesickness", "hope", "inspiration", "interest", "irritation", 
+  "jealousy", "loneliness", "longing", "love", "nostalgia", 
+  "pity", "playfulness", "pleasure", "psyched-up", "regret", 
+  "relief", "resignation", "schadenfreude", "self-anger", "self-pity", 
+  "serenity", "surprise", "sympathy", "tenderness", "threat-awe", "unfriendly", 
+  "unlucky", "worry")
+
+# 
+# "despair" in this study. Renamed as "hope". Effect sizes have been reversed coded.
+# "relaxation" in study. Renamed to "serenity"
+# "dejection" in this study. Renamed to "sadness"
+# "humiliation" in the study. Renamed to "shame"
+# "hopelessness" in study. Renamed as "hope". Effect sizes have been reversed coded
+# "positive surprise" in study. Renamed to "surprise"
+# "satisfaction" in study. Renamed to "contentment".
+# "liking" in study. Renamed as "affection"
+# "hopeful" in study. Renamed to "hope"
+# "nervous" in study. Renamed to "anxiety"
+# "resentful" in study. Renamed to "bitter"
+# "annoy" in this study. Renamed to "irritation"
+# "tranquility" in study. Renamed to "serenity"
+# 
+# emotion measured as fearful/worry/anxiety, and we separate into fear, worry, and anxiety.
+# emotion measured as hope/confidence, and we separate into hope and confident
+# 
+# "familiarity" in study. Reversed coded to "novelty".
+# "immorality" in study. Reverse coded to merge with normative significance (external)
+# "unexpectedness" in study. Re-coded to "expectedness"
+# "irrelevance" in study. Reverse-coded to "goal relevance"
+
+# some studies measured multiple appraisals within the same "cluster" (that we define).
+# for these, we picked the most relevant one and excluded the rest.
+
+LIST_OF_APPRAISALS = c(
+  'pleasantness', 'threat', 'loss', 'harm', 'severity', "easing of threat", 
+  
+  'goal conduciveness', 'goal relevance', 'value', 'difficulty', 
+  'perceived obstacle', 'attainability', 'desire for object', 
+  
+  'accountability-circumstances', 'accountability-other', 
+  'accountability-self', 'intentionality', 
+  
+  'control-circumstances', "control-other", "control-self", 
+  'emotion-focused coping potential', 'problem-focused coping potential', 
+  'effortful success', "modifiability",
+  
+  'novelty', 'expectedness', "remarkable", 'uniqueness',
+  
+  'future expectancy', 'attentional activity', 'certainty',
+  'future predictability', 'effort', 'stability', 
+    
+  'fairness', 'normative significance (external)', 'normative significance (internal)', 
+  
+  'concern for others', 'closeness', "evil character", "liking", 
+   
+  'challenge', 'globality', "reality", 
+  "self-esteem decreased", 'temporal distance', 'vastness')
+
+LIST_OF_APPRAISALS_alphabetical = LIST_OF_APPRAISALS[str_order(LIST_OF_APPRAISALS)]
+
+
+# The following lines "groups" appraisals with different terminologies 
+# into the appraisal "clusters" we have defined in the paper, i.e., 
+# LIST_OF_APPRAISALS just above. 
+data <- data %>%
+  mutate(Appraisal = fct_collapse(Appraisal,
+    'accountability-circumstances' = c("agency-circumstances",
+                                       'circumstances-attribution', 
+                                       'situational-agency',
+                                       "situation-attribution"),
+    'accountability-other' = c('agency-other', 'external agency',
+                               'other-accountability',
+                               'other-attribution', 'other-blame',
+                               'other-caused',
+                               'other-responsibility'),
+    'accountability-self' = c("agency-self", 'internal agency', 
+                              "internal attribution", "internal locus",
+                              'self-accountability', 'self-attribution',
+                              'self-blame', 'self-caused', 
+                              'self-responsibility'),
+    'attainability' = c('attainability', "possibility"),
+    'attentional activity' = c('attention', 'attentional activity', 
+                               'consideration', 'urgency', 'safety (reversed)'),
+    'certainty' = c('certainty', 'clarity', 'understandability'),
+    'challenge' = c('challenge'),
+    'closeness' = c('closeness'),
+    'concern for others' = c('other-concern', 'other-involved'),
+    'control-circumstances' = c("circumstances-control", 'situational-control'),
+    "control-other" = c( "control-other", 'external control'),
+    "control-self" = c('control-self', 'personal control', 'power', 'helplessness (reversed)'),
+    'desire for object' = c('desirability'),
+    'difficulty' = c('difficulty', 'situational demand', 'skill demand'),
+    "easing of threat" = c("easing of threat"),
+    'effort' = c('effort'),
+    'effortful success' = c('effortful optimism', "potential for success"),
+    'emotion-focused coping potential' = c('emotion-focused coping potential'),
+    "evil character" = c('evil character'),
+    'expectedness' = c('expectation', 'expectedness'),
+    'fairness' = c("deservingness", "fairness" ,'injustice (reversed)', 
+                   "justice", 'legitimacy', 'unfairness (reversed)'),
+    'future expectancy' = c("future expectancy", 
+                            "future expectations", "positive future expectancy", 
+                            "negative future expectancy",
+                            "outcome expectancy", "optimism", "expected success", "negative likelihood (reversed)"),
+    'globality' = c('globality'),
+    'goal conduciveness' = c('benefit',  
+                             'goal conduciveness',
+                             'goal congruence', 
+                             'goal hindrance (reversed)', 'motivational congruence',
+                             "motivational consistency",
+                             'situational state', 'hindrance (reversed)'),
+    'goal relevance' = c('centrality', 'goal relevance',
+                         'importance',
+                         'motivational relevance', "self-concern"),
+    'harm' = c('harm'),
+    'intentionality' = c('other-intentionality', 'intentionality'), 
+    "liking" = c("liking"),
+    'loss' = c('loss', 'reversibility (reversed)'),
+    "modifiability" = c("modifiability"),
+    'normative significance (external)' = 
+      c('external self-compatibility', 'fail to live up to external standards (reversed)',
+        'norm compatibility', 'norm violation (reversed)',
+        "compatibility with external standards norms"),
+    'normative significance (internal)' = 
+      c("compatibility with individual norms", 
+        "compatibility with internal standards",
+        "internal self-compatibility", "moral congruence", "self-consistency",
+        "immorality (reversed)"),
+    'novelty' = c('novelty', "familiarity (reversed)"), 
+    'perceived obstacle' = c('obstacle','problems'),
+    'pleasantness' = c('intrinsic pleasantness', 'pleasantness', 'valence'),
+    'future predictability' = c('predictability', "outcome probability"),
+    'problem-focused coping potential' = c('competence', 'coping potential', 
+                                           'problem-focused coping potential', 
+                                           'self-efficacy'),
+    "reality"  = c("reality"),
+    "remarkable" = c('remarkable', 'exceed expectation'),
+    "self-esteem decreased" = c("self-esteem decreased"),
+    'severity' = c("impact", "severity"),
+    'stability' = c('stability'),
+    'temporal distance' = c('temporal distance'),
+    'threat' = c('threat', 'danger', 'risk', "susceptibility", 'vulnerability'),
+    'uniqueness' = c('uniqueness', 'pattern/unique'),
+    'value' = c('attainment value', 'intrinsic value', 'outcome value','value'),
+    'vastness' = c('vastness')
+  )) %>% mutate(Appraisal = fct_relevel(Appraisal, LIST_OF_APPRAISALS),
+                Emotion = factor(Emotion),
+                Appraisal_alphabetical_order = fct_relevel(Appraisal, LIST_OF_APPRAISALS_alphabetical))
+
+
+
+## The rows with the following emotions are not included in meta-analysis 
+##   (reasons are given in the remarks column)
+## These emotions are already tagged with "no" in the `included` column
+##   and so are already excluded by the above data read-in.
+# LIST_OF_EMOTIONS_NOTUSED = c("depression", "stress", "beloved", "embrace", 
+#                              "grief", "hate", "hostility", "melancholy", "rage")
+
+## similarly the following appraisals are not included. 
+# LIST_OF_APPRAISALS_NOTUSED = 
+#   c("ability", # consists of multiple appraisals, stable and uncontrollable
+#     "causal locus", # this study also measured 'other-accountability', which is
+#                     # more relevant
+#     "coping ability", # this study measured on a nominal scale; 
+#                       # each level had a different anchor point
+#     "external causation", # one study measured on nominal scale
+#                           # another study included 'other person' and 'external'
+#                           # and one study used factor scores
+#     "external locus", # for this study, unclear whether 'other person' or 'external'
+#     "extrinsic value", # this study had both 'intrinsic' and 'extrinsic'
+#                        # we chose to use intrinsic
+#     "locus of causality", # unclear whether 'other person' or 'external'
+#     "obstacle/effort", # consists of multiple appraisals
+#     'other-significance', # excluded because this study also has 'other-concern'
+#     "uncontrollable", # unclear in the study's definition.
+#     "valued achievement", # multiple appraisals: "accountability-self", 
+#                          # and "goal conduciveness"
+#     "other-caused failure", "other-caused success",
+#     "self-caused failure", "self-caused success")
+
+```
+
+```{r helper-functions, echo=T, eval=T}
+
+## --- This chunk contains helper-functions to compute the meta-analysis, 
+## publication bias analyses, and other functions for creating the tables. 
+## -- ##
+
+
+# P-curve analysis
+# The following are the auxiliary and main functions used to run 
+# the p-curve analysis. I adapted the code from the original authors -
+# http://p-curve.com/app4/pcurve_app4.06.r
+
+# Function 1 - functions that find non-centrality parameter for f,chi 
+#    distributions that gives some level of power
+# F-test 
+# Note: starting with app 4.0, t() are converted to F() and Z to chisq() to 
+#      avoid unnecessary repetition of code
+# So we only need code to find ncp for F() and chisq()
+getncp.f = function(df1,df2, power)   {      
+  error = function(ncp_est, power, x, df1,df2) 
+    pf(x, df1 = df1, df2=df2, ncp = ncp_est) - (1-power)   
+  xc=qf(p=.95, df1=df1,df2=df2) 
+  return(uniroot(error, c(0, 1000), x = xc, df1 = df1,df2=df2, power=power)$root)  
+}
+
+# chisq-test
+getncp.c =function(df, power)   {      
+  xc=qchisq(p=.95, df=df) 
+  error = function(ncp_est, power, x, df) 
+    pchisq(x, df = df, ncp = ncp_est) - (1-power)   
+  return(uniroot(error, c(0, 1000), x = xc, df = df, power=power)$root)   
+}
+
+# Combine both in single function
+getncp = function(family,df1,df2,power) {
+  if (family=="f") ncp=getncp.f(df1=df1,df2=df2,power=power)
+  if (family=="c") ncp=getncp.c(df=df1,power=power)
+  return(ncp)  
+}
+
+# Function 3 - pbound: bound p-values and pp-values by precision of 
+#                     measurement to avoid errors
+pbound=function(p) pmin(pmax(p,2.2e-16),1-2.2e-16)
+
+# Function 4 - prop33(pc) - Computes % of p-values that are expected to be 
+#                           smaller than pc, for the tests submitted to 
+#                           p-curve, if power is 33%
+prop33=function(pc, family1, p, r_df, ncp33)
+{
+  #pc: critical  p-value
+  #Overview:
+  #Creates a vector of the same length as the number of tests 
+  #        submitted to p-curve, significant and not,
+  #    and computes the proportion of p-values expected to be smaller than 
+  #        {pc} given the d.f. 
+  #    and outputs the entire vector, with NA values where needed
+  # F-tests (& thus  t-tests)
+  prop=ifelse(family1=="f" & p<.05,
+              1-pf(qf(1-pc,df1=1, df2=r_df),df1=1, df2=r_df, ncp=ncp33),NA)
+  # Chi2 (& thus Normal)
+  prop=ifelse(family1=="c" & p<.05,
+              1-pchisq(qchisq(1-pc,df=df1), df=df1, ncp=ncp33),prop)
+  # output it
+  prop
+}
+
+# Function 5 Stouffer test for a vector of pp-values
+stouffer=function(pp) sum(qnorm(pp),na.rm=TRUE)/sqrt(sum(!is.na(pp)))
+
+# main p-curve function. This function takes in a dataframe 
+#          (that has already been subsetted by the appraisal and emotion) 
+#          and computes the necessary p-curve statistics
+p_curve = function(df) {
+  r_values <- df$r
+  r_df = df$N - 2
+  # Create family to turn t-->F
+  family1 = rep("f",dim(df)[1])
+  #For correlation, first turn value (r) to t, then square t. 
+  #     (using t=r/sqrt(1-r**2)/DF)
+  value= (r_values/(sqrt((1-r_values**2)/r_df)))**2
+  # Compute p-values
+  p = 1-pf(value,df1=1,df2=r_df)
+  p=pbound(p) 
+  # Count  studies
+  ksig= sum(p<.05,na.rm=TRUE)     #significant studies
+  khalf=sum(p<.025,na.rm=TRUE)  #half p-curve studies
+  
+  # COMPUTE PP-values
+  #2.1 Right Skew, Full p-curve
+  ppr=as.numeric(ifelse(p<.05,20*p,NA))            
+  #If p<.05, ppr is 1/alpha*p-value, so 20*pvalue, otherwise missing. 
+  ppr=pbound(ppr)      #apply pbound function to avoid 0
+  
+  #2.2 Right Skew, half p-curve
+  ppr.half=as.numeric(ifelse(p<.025,40*p,NA))    
+  #If p<.05, ppr is 40*pvalue, otherwise missing. 
+  ppr.half=pbound(ppr.half)
+  
+  #2.3 Power of 33%
+  #2.3.1 NCP for  f,c distributions
+  # NCP33 (noncentrality parameter giving each test 
+  #    in p-curve 33% power given the d.f. of the test)
+  ncp33=mapply(getncp,df1=1,df2=r_df,power=1/3,family=family1) 
+  #See function 1 above
+  
+  #2.3.2 Full-p-curve
+  #Using the ncp33 compute pp33
+  pp33=ifelse(family1=="f" & p<.05,3*(pf(value, df1=1, df2=r_df, ncp=ncp33)-2/3),NA)
+  pp33=pbound(pp33)
+  
+  #2.3.3 HALF-p-curve
+  #Share of p-values expected to be p<.025 if 33% power 
+  #   (using Function 4 from above, prop33() )
+  prop25=3*prop33(.025, family1 = family1, p = p, r_df = r_df, ncp33 = ncp33 )
+  prop25.sig=prop25[p<.05]
+  
+  #Compute pp-values for the half
+  pp33.half=ifelse(family1=="f" & p<.025, (1/prop25)*(
+    pf(value,df1=1,df2=r_df,ncp=ncp33)-(1-prop25)),NA)
+  pp33.half=pbound(pp33.half)
+  
+  #########################################################################  
+  # INFERENCE - STOUFFER & BINOMIAL
+  ###########################################################################  
+  
+  # Convert pp-values to Z scores, using Stouffer function above
+  Zppr =     stouffer(ppr)            #right skew  - 
+                                      # this is a Z value from Stouffer's test
+  Zpp33=     stouffer(pp33)           #33% - idem 
+  Zppr.half= stouffer(ppr.half)       #right skew, half p-curve - idem 
+  Zpp33.half=stouffer(pp33.half)      #33% skew, half p-curve - idem 
+  
+  # Overall p-values from Stouffer test
+  p.Zppr =pnorm(Zppr)	
+  p.Zpp33=pnorm(Zpp33)
+  p.Zppr.half =pnorm(Zppr.half)
+  p.Zpp33.half=pnorm(Zpp33.half)
+  
+  return(c(Zppr, p.Zppr, Zpp33, p.Zpp33, Zppr.half, p.Zppr.half))
+}
+
+
+
+
+### the following functions help to provide the interpretation
+### of significant appraisal-emotion relationships
+
+# These mappings just make the interpretation sound more grammatical.
+emotion_strings = data.frame(
+  emotion = c(LIST_OF_EMOTIONS_Short, LIST_OF_EMOTIONS_Long),
+  string = c(LIST_OF_EMOTIONS_Short, 
+    c("admiration", "affection", "amusement", "apathy", "awe", 
+      "bitter", "challenge", "comfortable", "compassion", "confidence", 
+      "confusion", "contempt", "contentment", "curiosity", "disappointment", 
+      "disgust", 
+      "distrust", "embarrassment", "empathy", "enthusiasm", "envy", 
+      "excitement", "frustration", "gladness", "gratitude", "homesickness", 
+      "hope", "inspiration", "interest", "irritation", "jealousy", 
+      "feelings of loneliness", 
+      "feelings of longing", 
+      "love", "nostalgia", "pity", "playfulness", 
+      "pleasure", "psyched-up", "regret", "relief", "resignation",  
+      "feelings of schadenfreude", 
+      "self-anger", "self-pity", "serenity", "surprise", 
+      "sympathy", "tenderness", 
+      "feelings of awe (in response to something threatening or fearful)",
+      "feelings of unfriendliness", 
+      "feelings of unluckiness", "worry"))
+)
+
+
+appraisal_strings = data.frame(
+  appraisal = LIST_OF_APPRAISALS,
+  string = c(
+    'perceived pleasantness of the situation', 
+    'perceived imminent threat in the situation', 
+    'perception that something irretrievable has been lost', 
+    'perceived harm', 
+    "perceived severity of the consequences of the situation to one's well-being", 
+    "perception that a threat or harm has been removed from the situation", 
+    
+    "consistency of the situation with one's goals", 
+    "perceived relevance of the situation to one's goals", 
+    "perceived value of the situation to one's goals and desires",
+    'perceived difficulty', 
+    'perception that an obstacle hampers the attainment of a desired goal', 
+    'perception that one could obtain what one desires', 
+    'desire for something another person has', 
+
+    'attribution of the cause of the situation to impersonal circumstances', 
+    'perceived responsibility for the cause of the situation attributed to other people/objects', 
+    'perceived personal responsibility of the cause of the situation', 
+    'perceived intentionality of the cause of the event either by oneself or others', 
+  
+    'perception that impersonal circumstances have control over the situation', 
+    "perception that other people/objects have control over the situation", 
+    "perceived control over the situation", 
+    'ability to emotionally cope and adapt to the situation', 
+    'perceived ability to cope and adapt to the situation', 
+    'perception that effort could make the situation better', 
+    "perception that the situation could be modified", 
+  
+    'perceived novelty in the situation',  
+    'expectation of the occurrence of the situation', 
+    "feeling that it was remarkable to have gotten this outcome", 
+    'perception of how unique the situation was', 
+  
+    'expectation that the situation will get better',
+    'perceived need to take time/effort to attend to the situation further', 
+    'understanding of the situation', 
+    'ability to predict what is going to occur in the future', 
+    'need to exert effort to deal with the situation', 
+    'perception that the situation is stable and permanent', 
+  
+    'perceived fairness of the situation', 
+    'consistency of the situation with external and social norms',
+    "consistency of the situation with one's ideals", 
+  
+    "concern for others' well-being in the situation", 
+    'perception of closeness of the relationship to another person', 
+    "perception of others as dispositionally evil", 
+    "liking for another person", 
+  
+    'perception of a future gain after overcoming an obstacle in the situation', 
+    "perception that the event is relevant to all aspect of one's life", 
+    "perception that is situation is real and had already occurred", 
+  "perception that one's self-esteem has decreased", 
+  'perceived temporal distance to a remembered past situation', 
+  "perception that something is much grander than oneself"
+  )
+)
+
+
+# function that returns a grammatical string for the table
+return_interpretation = function(this_appraisal, this_emotion, r) {
+  # Example interpretation:
+  # The greater the 
+  # perceived responsibility for the cause of the 
+  #     situation attributed to other people/objects
+  # , the 
+  # greater 
+  # the 
+  # anger
+  
+  appraisal_string = appraisal_strings[
+    appraisal_strings$appraisal==this_appraisal, "string"]
+  emotion_string = emotion_strings[
+    emotion_strings$emotion==this_emotion, "string"]
+  if(r>0) {comparator = "greater"} else {comparator = "less"}
+  
+  interpretation_string = paste(
+    "The greater the ", 
+    appraisal_string, 
+    ", the ", comparator, " the ",
+    emotion_string, ".", sep=""
+  )
+  return(interpretation_string)
+}
+
+```
+
+```{r make-table-function, echo=T, eval=T}
+
+# This function is a helper function to construct Results Tables
+#   (Meta-analysis for a given Emotion and Appraisal)
+#   It takes in the data frame and produces the necessary statistics
+#   as a row of a data frame.
+meta_analysis_for_table = function(df, this_emotion, 
+                                   num_digits=4, 
+                                   pubBias = TRUE, 
+                                   interpretation=TRUE) {
+  meta_df = rma(z,v,data=df, method = 'ML')
+  
+  if(meta_df$pval<0.001) {
+    pstring = "***"
+  } else if(meta_df$pval<0.01) {
+    pstring = "**"
+  } else if(meta_df$pval<0.05) {
+    pstring = "*"
+  } else { pstring = "" }
+  
+  table_df = data.frame(
+      Emotion = this_emotion,
+      Appraisal = df$Appraisal[1],
+      k = nrow(df),
+      # apply fisherz2r()
+      r = paste(format(fisherz2r(meta_df$b[1]), digits=num_digits), 
+                pstring, sep = ""))
+  
+  if(nrow(df)>1) {
+    if(meta_df$QEp<0.001) {
+      Q_pstring = "***"
+    } else if(meta_df$QEp<0.01) {
+      Q_pstring = "**"
+    } else if(meta_df$QEp<0.05) {
+      Q_pstring = "*"
+    } else { Q_pstring = "" }
+    
+    table_df = table_df %>% mutate(
+      # 95% CI; apply fisherz2r()
+      ci = paste(format(fisherz2r(meta_df$ci.lb), digits=num_digits), 
+                 format(fisherz2r(meta_df$ci.ub), digits=num_digits), sep=", "),
+      # Q statistic, (Q df), Q_pstring
+      Q = paste(format(meta_df$QE, digits=num_digits), " (", 
+                format(nrow(df) - 1, digits=num_digits), ")", Q_pstring, sep=""),
+      # sqrt(tau^2)
+      #tau2 = format(meta_df$tau2, digits=num_digits),
+      tau = format(sqrt(meta_df$tau2), digits=num_digits),
+      # I2
+      I2 = format(meta_df$I2, digits=num_digits))
+  } else {
+    table_df = table_df %>% mutate(ci = NA, Q = NA, tau = NA, I2 = NA)
+  }
+  
+  
+  # the publication bias analyses only done if 10 or more studies. 
+  if(pubBias & nrow(df)>10) {
+    reg_test = regtest(meta_df, model='rma')
+    # fsn_orwin = fsn(yi=z, vi=v, data=df, type='Orwin', target=0.05)  
+    # p_curve_results = p_curve(df)
+    # ## p-curve significance
+    # ## z_half
+    #   if(p_curve_results[6]<0.001) { pstring1 = "***"
+    #   } else if(p_curve_results[6]<0.01) { pstring1 = "**"
+    #   } else if(p_curve_results[6]<0.05) { pstring1 = "*"
+    #   } else { pstring1 = "" }
+    # 
+    # ## z_full
+    #   if(p_curve_results[2]<0.001) { pstring2 = "***"
+    #   } else if(p_curve_results[2]<0.01) { pstring2 = "**"
+    #   } else if(p_curve_results[2]<0.05) { pstring2 = "*"
+    #   } else { pstring2 = "" }
+    # 
+    # ## z_flat
+    #   if(p_curve_results[4]<0.001) { pstring3 = "***"
+    #   } else if(p_curve_results[4]<0.01) { pstring3 = "**"
+    #   } else if(p_curve_results[4]<0.05) { pstring3 = "*" 
+    #   } else { pstring3 = "" }
+    
+    
+    table_df <- table_df %>% mutate(
+      # Egger regression p value
+      p_egger = format(reg_test$pval, digits=num_digits) #,
+      ## fail-safe N
+      #FSN = format(fsn_orwin$fsnum, digits=num_digits),
+      ## z_half
+      #z_half = paste(format(p_curve_results[5], digits=num_digits), 
+      #          pstring1, sep = ""),
+      ## z_full
+      #z_full = paste(format(p_curve_results[1], digits=num_digits), 
+      #          pstring2, sep = ""),
+      ## z_flat
+      #z_flat = paste(format(p_curve_results[3], digits=num_digits), 
+      #          pstring3, sep = ""),
+    )
+  } else if (pubBias) { # 9 or fewer studies but still want to print pubBias
+    table_df <- table_df %>% mutate(
+      p_egger = NA #, FSN = NA, z_half = NA, z_full = NA, z_flat = NA
+    )
+  }
+  if(interpretation) {
+    if(meta_df$pval<0.05) {
+      table_df <- table_df %>% mutate(interpretation = 
+        return_interpretation(df$Appraisal[1], this_emotion, fisherz2r(meta_df$b[1]))
+        )
+    } else {
+      table_df <- table_df %>% mutate(interpretation = NA)
+    }
+  }
+  
+  return(table_df)
+}
+
+
+
+
+```
+
+
+### Table 2: Descriptive Statistics
+
+
+```{r calculate-descriptives, echo=T, eval=T, warning=F, message=F}
+# This chunk calculates some descriptives: total number of studies, etc
+
+num_total_effect_sizes = nrow(data)
+num_total_studies = length(unique(data$Study.ID))
+
+# this following line does some regex manipulation
+# to collapse different samples within the same article
+unique_articles = data %>% 
+  group_by(Study.ID) %>%
+  filter(row_number()==1) %>%
+  ungroup() %>%
+  select(Study.ID, Study, Year, Dissertation) %>%
+  mutate(Article = str_replace_all(Study,
+    c("(main study)" = "",
+      "[Ss]tudy [1-9][a-z]*" = "",
+      "experiment [1-9]" = "",
+      ", in-group condition" = "",
+      ", out-group condition" = "",
+      "Hangzhou sample" = "", "Yangshuo sample" = "",
+      "study1: second grade sample" = "", "study1: third grade sample" = "",
+      "study2" = "", 
+      "US sample" = "", "Korean sample" = "", "Japanese sample" = "",
+      "husband sample" = "", "wife sample" = "",
+      "female sample" = "", "male sample" = "", "women" = "", "men" = "",
+      "phase 1" = "", "; accounting" = "", "; aerospace" = "",
+      "- climate change sample" = "",
+      "- climate influenza sample" = "",
+      "adult sample" = "", "child sample" = "",
+      "Grade [1-9] sample" = "", "Great Lakes study" = "",
+      "Watershed study: flood risk path" = "",
+      "Watershed study: environmetal health of river path" = "",
+      "[.]1a" = "", "[.]1b" = "", "[.]2" = "",
+      "[()]" = "", ":"="", ";"="", ","=""
+      )),
+  Article = str_trim(Article),
+  Article = paste(Article, Year)
+)
+
+data_unique_articles <- unique_articles %>% group_by(Article) %>% 
+  filter(row_number()==1) %>% 
+  select(Article, Year, Dissertation) %>% 
+  mutate(Year = as.numeric(str_replace_all(Year, c("a" = "", "b" = "")))) %>% ungroup()
+
+
+data_articles_insufficient_statistics <- readxl::read_excel("prisma_all_articles.xlsx", sheet="insufficient statistics") %>% mutate(type = "insufficient statistics") %>% rename(Year = year)
+
+
+data_articles_both = bind_rows(
+  (data_unique_articles %>% mutate(type = "included") %>% select(Year, type)),
+  (data_articles_insufficient_statistics %>% select(Year, type))
+) %>% mutate(type = factor(type, levels=c("insufficient statistics", "included")))
+
+
+num_total_articles = nrow(data_unique_articles)
+
+# table(data_unique_articles$Dissertation)
+
+#num_total_articles = length(unique(unique_articles$Article))
+
+#num_total_emotion_appraisal_relationships = nrow(data %>% group_by(Emotion, Appraisal) %>% summarize(num = n()))
+
+num_total_emotion_appraisal_relationships = (data %>% group_by(Emotion, Appraisal) %>% summarize(num = n()) %>% ungroup() %>% summarize(count = n()))$count
+
+num_total_emotions = length(levels(data$Emotion))
+num_total_appraisals = length(levels(data$Appraisal))
+
+```
+
+  Category                                          Count
+----------                                          -------
+Total number of effect sizes                        `r num_total_effect_sizes`
+Total number of emotion-appraisal relationships     `r num_total_emotion_appraisal_relationships`
+Total number of studies                             `r num_total_studies`
+Total number of articles                            `r num_total_articles`
+Total number of emotions                            `r num_total_emotions`
+Total number of appraisals                          `r num_total_appraisals`
+
+
+
+### Analyzing Geography, Language, and Contexts
+```{r geography-and-contexts, echo=T, eval=T}
+# data <- read.csv('meta-analysis_data.csv',header=T) %>% 
+#   filter(included=="yes") %>%
+#   droplevels() %>%
+#   mutate(Appraisal_Raw = Appraisal)
+
+data_singlestudy = data %>% group_by(Study.ID) %>% filter(row_number()==1) %>%
+  mutate(sample_raw = sample,
+         context_raw = context,
+         inferredLanguage = recode(country,
+                                   "USA" = "English",
+                                   "USA/Canada" = "English",
+                                   "UK" = "English",
+                                   "Australia" = "English",
+                                   "Canada" = "English",
+                                   "Online, mostly USA/UK sample" = "English",
+                                   "Undisclosed (likely UK or Australia)" = "English",
+                                   "Undisclosed (MTurk)" = "English",
+                                   "Undisclosed (Reddit)" = "English",
+                                   "Singapore" = "English",
+                                   "Trinidad and Tobago" = "English",
+                                   "China" = "Chinese",
+                                   "Hong Kong" = "Chinese"),
+         sample = recode(sample,
+                         "community-AMT" = "crowdsource",
+                         "community-Mturk" = "crowdsource", 
+                         "community-WisoPanel" = "crowdsource",
+                         "community-crowdsource" = "crowdsource",
+                         "community-crowdsource (Credamo)" = "crowdsource", 
+                         "community-crowdsource (prolific)" = "crowdsource",
+                         "student-athletes" = "student", 
+                         "student-managers" = "student",
+                         "community-athletes" = "community", 
+                         "community-clerks" = "community", 
+                         "community-dancers" = "community", 
+                         "community-employees" = "community", 
+                         "community-faculty" = "community", 
+                         "community-nurse" = "community", 
+                         "community-nurses" = "community", 
+                         "community-reddit" = "community", 
+                         "community-teachers" = "community", 
+                         "community-tourist" = "community", 
+                         "community-university workers" = "community", 
+                         "community-work" = "community"),
+         context = recode(context,
+                         'academic-bullying' = 'education',
+                         'academic-classroom management' = 'education',
+                         'academic-classroom management / corporate' = 'education',
+                         'academic-education' = 'education',
+                         'academic-exams' = 'education',
+                         'academic-finance' = 'education',
+                         'academic-lesson' = 'education',
+                         'academic-lessons' = 'education',
+                         'academic-test' = 'education',
+                         'Health' = 'health',
+                         'health-injury' = 'health',
+                         'health-pandemic' = 'health',
+                         'health-pregnancy' = 'health',
+                         'corporate' = 'work',
+                         'corporate-employment' = 'work',
+                         'corporate-fraud' = 'work',
+                         'corporate-nursing setting' = 'work',
+                         'corporate-social relationships' = 'work',
+                         'corporate-tax evasion' = 'work',
+                         'performance-dance' = 'work',
+                         'social relationshio' = 'social relationships',
+                         'social relationship-sexual aggression' = 'social relationships',
+                         'social relationships- stigma' = 'social relationships',
+                         'Social relationships-breakup' = 'social relationships',
+                         'social relationships-conflict' = 'social relationships',
+                         'social relationships-divorce' = 'social relationships',
+                         'social relationships-envy' = 'social relationships',
+                         'social relationships-health context' = 'social relationships',
+                         'social relationships-health, taking care of partner' = 'social relationships',
+                         'social relationships-interparental conflict' = 'social relationships',
+                         'social relationships-negotiation' = 'social relationships',
+                         'social relationships-partners' = 'social relationships',
+                         'social relationships-romantic' = 'social relationships',
+                         'social relationships-child-parent' = 'social relationships',
+                         'death of loved one-grief' = 'social relationships',
+                         'childhood experience' = 'social relationships',
+                         'childhood experiences' = 'social relationships',
+                         'event-food and wine' = 'consumption',
+                         'art-images' = 'art',
+                         'art-poems' = 'art',
+                         'disaster-flood' = 'environment',
+                         'environment and ecology' = 'environment',
+                         'environment-climate change' = 'environment',
+                         'environment/ecology' = 'environment',
+                         'environment/ecology-animals' = 'environment',
+                         'contamination-using toilet' = 'environment',
+                         
+                         'do a task and obtain hints from the experimenter' = 'lab tasks',
+                         'opinion-expression task' = 'lab tasks',
+                         'partner task' = 'lab tasks',
+                         'social relationships- competitive task and public speaking' = 'lab tasks',
+                         'social relationships- lab task' = 'lab tasks',
+                         'stressor task' = 'lab tasks',
+                         'stressor task-speech presentation' = 'lab tasks',
+                         'task' = 'lab tasks',
+                         'task and feedback' = 'lab tasks',
+                         'task in front of audience' = 'lab tasks',
+                         'watching film' = 'lab tasks',
+                         'play activity-alone' = 'lab tasks',
+                         
+                         'human computer interaction' = 'human-computer interaction',
+                         'disaster-terrorism' = 'politics', 
+                         'immigration' = 'politics', 
+                         'immigration-general' = 'politics',
+                         'intergroup perception' = 'politics',
+                         'politics-intergroup perception' = 'politics',
+                         'politics-intergroup violece' = 'politics',
+                         'politics-terrorism' = 'politics',
+                         'legal-court case' = 'legal',
+                         'crime' = 'legal',
+                         'violence' = 'legal',
+                         'trauma experience' = 'legal',
+                         'media-news' = 'media',
+                         'sports-competition' = 'sports'
+                         )
+  ) 
+
+
+print("Country")
+table(data_singlestudy$country)
+#table(data_singlestudy$region)
+
+
+print("Inferred language -- mainly English or non-English")
+table(data_singlestudy$inferredLanguage)
+
+
+print("Participant sample type")
+table(data_singlestudy$sample)
+
+print("Experiment Context")
+table(data_singlestudy$context)
+
+print("Experimental Study? (No == Correlational Study)")
+table(data_singlestudy$exp)
+
+
+print("Dissertation Study? (No == Journal Study)")
+table(data_singlestudy$Dissertation)
+
+print("Summary of sample size")
+summary(data_singlestudy$N)
+```
+
+### Bibliographic analysis (and Figure S1)
+```{r bibliographic-analysis, echo=T, eval=T, warning=F, message=F}
+# table(data_unique_articles$Dissertation) ## 59 dissertations, 192 articles
+
+data_unique_articles %>% ggplot(aes(x=Year)) + 
+  geom_histogram(data = data_articles_both, stat = "count", fill="grey80") +
+  geom_histogram(stat="count", fill="grey30") +
+  # stat_count(binwidth = 1, 
+  #            geom = 'text', 
+  #            color = 'white', 
+  #            aes(label = ..count..),
+  #          position = position_stack(vjust = 0.5)) + 
+  stat_count(geom = "text", 
+             aes(label = ..count..),
+             position=position_stack(vjust=0.5), colour="white", size = 3) +
+  scale_x_continuous(breaks = c(1975, 1980, 1985, 1987, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2023)) +
+  ylab("Number of Articles") + theme_bw() + theme(panel.grid.minor.x = element_blank())
+# 8.5 by 4
+
+# data_unique_articles %>% ggplot(aes(x=Year)) + 
+#   geom_histogram(stat = "count") +
+#   stat_count(binwidth = 1,
+#              geom = 'text',
+#              color = 'white',
+#              aes(label = ..count..),
+#            position = position_stack(vjust = 0.5)) +
+#   scale_x_continuous(breaks = c(1987, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2023)) +
+#   ylab("Number of Articles") + theme_bw()
+# # 8 by 3
+
+# year_counts = bind_rows(
+#   data_unique_articles %>% group_by(Year) %>% summarize(count=n()),
+#   data.frame(Year = c(1989, 1990, 1991, 1992), count=0)) %>% # adding years with 0
+#   arrange(Year) %>% mutate(
+#     rolling_avg_2 = (count + lag(count)) / 2,
+#     rolling_avg_3 = (count + lag(count) + lag(count, n=2)) / 3
+#   )
+# 
+# year_counts %>% ggplot(aes(x=Year)) + 
+#   geom_line(aes(y=count), color="black") +
+#   geom_line(aes(y=rolling_avg_2), color="red") +
+#   geom_line(aes(y=rolling_avg_3), color="green")
+
+```
+
+
+
+### Making static tables
+These next chunks are to create the static tables and figures for the paper. Several of the next chunks that write to file are current set to `eval=F` (i.e., these chunks don't run). 
+
+```{r make-static-tables-for-paper, warning=F, echo=T, eval=F}
+## Set `eval=T` to run this chunk.
+## This chunk is to create the static Results Tables in the paper
+## This is written to file, not output.
+
+
+## This next set of code writes the whole Results Table to a .csv file
+# this is for the "commonly studied emotions (min k > 10)"
+full_table = data.frame()
+for(this_emotion in LIST_OF_EMOTIONS_Short) {
+  this_table = data.frame()
+  
+  for(this_appraisal in LIST_OF_APPRAISALS) {
+    df = data %>% filter(Emotion == this_emotion,
+                         Appraisal == this_appraisal)
+    if(nrow(df)>=1) {
+      this_table = bind_rows(this_table, 
+                             meta_analysis_for_table(df, this_emotion,
+                                                     pubBias=TRUE,
+                                                     interpretation=TRUE))
+    }
+  }
+  this_table <- this_table %>% arrange(Emotion, desc(k), Appraisal)
+  full_table = bind_rows(full_table, this_table, data.frame(NA))
+}
+
+# adding spaces just just to make the table look nicer
+full_table <- full_table %>% 
+  mutate(blank1=NA, .after = k) %>%
+  mutate(blank2=NA, .after = I2)
+
+write.csv(full_table, "table-meta-analysis-results-common-emotions-raw.csv", row.names=F, na="")
+
+
+## And this is for all other emotions (in appendix)
+# Note variable names are re-used
+full_table = data.frame()
+for(this_emotion in LIST_OF_EMOTIONS_Long) {
+  this_table = data.frame()
+  
+  for(this_appraisal in LIST_OF_APPRAISALS) {
+    df = data %>% filter(Emotion == this_emotion,
+                         Appraisal == this_appraisal)
+    if(nrow(df)>=1) {
+      this_table = bind_rows(this_table, 
+                             meta_analysis_for_table(df, this_emotion,
+                                                     pubBias=FALSE,
+                                                     interpretation=TRUE))
+    }
+  }
+  this_table <- this_table %>% arrange(Emotion, desc(k), Appraisal)
+  full_table = bind_rows(full_table, this_table, data.frame(NA))
+}
+
+# adding spaces just just to make the table look nicer
+full_table <- full_table %>% mutate(blank1=NA, .after = k)
+
+write.csv(full_table, "table-meta-analysis-results-all-other-emotions-raw.csv", row.names=F, na="")
+
+```
+
+
+
+
+#### Figure 2: Bubble Plot of Effect Sizes
+
+```{r read-in-table-data-for-plot, echo=T, eval=T, fig.width=7, fig.height=4}
+table_common = read.csv('table-meta-analysis-results-common-emotions-raw.csv', header=T) %>% 
+  select(-blank1, -blank2, -`NA.`) %>% 
+  filter(Appraisal != "") %>%
+  mutate(Emotion = factor(Emotion),
+         r_significant = factor( grepl("[*]", r)*1.0 , 
+                                 levels=c(1,0), labels=c("Yes", "No")),
+         r = as.numeric(str_replace_all(r, c("[*]" = ""))))
+
+set.seed(42)
+table_common %>% ggplot() + 
+  # geom_rect(xmin = -1.0, xmax = -0.25, ymin=0, ymax = 12,
+  #           alpha=0.2, fill="#EEEEEE") +
+  geom_rect(xmin = 0.25, xmax = 1.00, ymin=0, ymax = 12,
+            alpha=0.2, fill="#EEEEEE") +
+  geom_point(aes(y=Emotion, x=abs(r), size=k, color=k, shape=r_significant), alpha=0.8,
+             position=position_jitter(height=0.25)) + 
+  #geom_point(aes(y=Emotion, x=abs(r), size=k, shape=r_significant), alpha=0.5,
+  #           position=position_jitter(height=0.25)) + 
+  #scale_x_continuous(breaks=c(-0.5, -0.25, 0, 0.25, 0.5)) +
+  scale_x_continuous(breaks=c(0, 0.25, 0.5)) +
+  scale_y_discrete(limits = rev(levels(table_common$Emotion))) +
+  scale_shape_manual(values = c(16, 1), name="Significant") +
+  scale_size_continuous(name="Number of effect sizes", breaks = c(1,10,20,30,40)) + 
+  # scale_color_distiller(name="Number of effect sizes", palette = "YlOrBr", 
+  #                       direction = 1,
+  #                       aesthetics = c("colour", "fill"),
+  #                       limits=c(-20, 50),
+  #                       breaks=c(10,20,30,40)) +
+  scale_color_viridis_c(begin = 0, end = 1,
+                       direction = -1, na.value = "#f9f9f9",
+                       #option = "plasma", 
+                       breaks = c(1,10,20,30,40),
+                       name = "Number of effect sizes") +
+  guides(shape = guide_legend(nrow = 2, byrow = T),
+         size = guide_legend(nrow = 5, byrow = T), 
+         color = guide_legend(nrow = 5, byrow = T)) +
+  xlab("Absolute value of the effect size (correlation coefficient |r|)") +
+  my_theme + theme(legend.position = "right",
+                   legend.title = element_text(size=12),
+                   legend.text = element_text(size=10))
+# 7 x 4
+
+```
+
+
+#### Figure 3: Heatmap (Number of studies for each appraisal/emotion relationship)
+
+```{r make-static-figures-heatmap, message=F, warning=F, echo=T, eval=T, fig.width=12, fig.height=9}
+## Set `eval=T` to run this chunk.
+
+heatmap_df = data %>% 
+      #group_by(Emotion, Appraisal) %>%
+      group_by(Emotion, Appraisal, .drop = FALSE) %>% ## this line is to calculate k=0's
+      summarize(k = n()) %>% ungroup() %>% 
+      arrange(desc(k), Emotion, Appraisal) %>%
+      mutate(k = na_if(k, 0))
+
+
+
+# manually sorting
+emotion_order <- c("anger",
+                   "sadness",
+                   "fear",
+                   "joy",
+                   "hope",
+                   "pride",
+                   "shame",
+                   "embarrassment",
+                   "anxiety",
+                   "worry",
+                   "guilt",
+                   "gratitude",
+                   "relief",
+                   "regret",
+                   "disappointment",
+                   "contentment",
+                   "resignation",
+                   
+                   "love",
+                   "affection",
+                   
+                   "surprise",
+                   "excitement", 
+                   "enthusiasm",
+                   
+                   "amusement",
+                   "serenity",
+                   "awe",
+                   "threat-awe",
+                   
+                   "confident",
+                   "challenge",
+                   "interest",
+                   "curious",
+                   "boredom",
+                   "frustration",
+                   "confusion",
+                   "irritation",
+                   
+                   "self-anger",
+                   "bitter",
+                   "disgust",
+                   "contempt",
+                   
+                   "self-pity",
+                   "pity",
+                   "compassion",
+                   "sympathy",
+                   "empathy",
+                   "apathy",
+                   
+                   "schadenfreude",
+                   "distrust",
+                   "jealousy",
+                   "envy",
+                   "admiration",
+                   
+                   
+                   "loneliness",
+                   "homesickness",
+                   "longing",
+                   "nostalgia",
+                   "tenderness",
+                   
+                   "pleasure",
+                   "enjoyment",
+                   "gladness",
+                   "comfortable",
+                   "psyched-up",
+                   "playfulness",
+                   "inspiration",
+                   "unfriendly",
+                   "unlucky"
+                   )
+appraisal_order <- c("pleasantness",
+                     "loss",
+                     "harm",
+                     "severity",
+                     "threat",
+                     "easing of threat",
+                     
+                     "goal conduciveness",
+                     "goal relevance",
+                     "value",
+                     "difficulty",
+                     "perceived obstacle",
+                     
+                     "attainability",
+                     "desire for object",
+                     "liking",
+                     "closeness",
+                     
+                     "evil character",
+                     "concern for others",
+                     
+                     
+                     "accountability-other",
+                     "accountability-self",
+                     "accountability-circumstances",
+                     "intentionality",
+                     
+                     "control-other",
+                     "control-self",
+                     "control-circumstances",
+                     "problem-focused coping potential",
+                     "emotion-focused coping potential",
+                     "effortful success",
+                     "modifiability",
+                     
+                     "novelty",
+                     "expectedness",
+                     "remarkable",
+                     "uniqueness",
+                     
+                     "future expectancy",
+                     "attentional activity",
+                     "certainty",
+                     "future predictability",
+                     "effort",
+                     "stability",
+                     
+                     "fairness",
+                     "normative significance (external)",
+                     "normative significance (internal)",
+                     
+                     "challenge",
+                     "globality",
+                     "reality",
+                     "self-esteem decreased",
+                     "temporal distance",
+                     "vastness"
+)
+
+heatmap_df %>% 
+  ggplot(aes(x = factor(Emotion, level = emotion_order), 
+             y = factor(Appraisal, level = rev(appraisal_order)), 
+             fill= k)) + 
+  geom_tile() + 
+  #scale_fill_gradient(low = "red", high = "blue") +
+  # scale_fill_gradientn (
+  #     colours = colorRampPalette(c("grey100", "blue"))(20),
+  #     values = c(1,2,3,4,5,6,7,8,9,10,11,12,13,15,29,25,30,35,40,50)/50) +
+  #scale_fill_gradientn (colours = colorRampPalette(c("grey", "blue"))(20)) +
+  #scale_fill_gradientn (colours = colorRampPalette(c("grey90", "grey10"))(20)) +
+  # scale_fill_distiller(name="Number of effect sizes", 
+  #                      #palette = "Oranges",
+  #                      palette = "YlOrBr", 
+  #                      direction = 1,
+  #                      na.value = "#f9f9f9",
+  #                      limits=c(-10, 50),
+  #                      breaks=c(1, 10,20,30,40,50)#,
+  #                      #guide = guide_colorbar(draw.llim = FALSE)
+  #                      ) +
+  scale_fill_viridis_c(begin = 0, end = 1,
+                       direction = -1, na.value = "#f9f9f9",
+                       #option = "plasma", 
+                       breaks = c(1,10,20,30,40),
+                       name = "Number of effect sizes") +
+  xlab("Emotions") + ylab("Appraisals") +
+  scale_x_discrete(position = "top") +
+  theme_bw() + my_theme +
+  theme(legend.position="bottom",
+        #axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=0))
+# 12 by 9
+```
+
+
+
+
+### Table 3: Average effect sizes for different appraisal-emotion relationship types
+
+```{r predicted-relationships-test, warning=F, echo=T, eval=T}
+d2 <- read.csv("predicted_relationships.csv") %>% 
+  rename(appraisal = Appraisal, emotion=Emotion) %>% 
+  mutate(
+    appraisal = tolower(as.character(appraisal)),
+    prediction = factor(prediction, levels=c(
+      "Predicted & Supported", "Predicted & Not Significant",
+      "Predicted & Opposite", "No prediction & Significant",
+      "No prediction & Not Significant"
+  )),
+  appraisal = recode(appraisal, "predictability" = "future predictability")
+)
+
+for(thisline in c(1:nrow(d2))) {
+  this_appraisal = d2$appraisal[thisline]
+  if(this_appraisal=="predictability") {this_appraisal="future predictability"}
+  
+  temp_df = data %>% filter(Emotion == d2$emotion[thisline],
+                            Appraisal == this_appraisal)
+  meta_df = rma(z,v,data=temp_df, method = 'ML')
+
+  d2$r_precise[thisline] = fisherz2r(meta_df$b[1])
+} 
+
+d2 = d2 %>% mutate(
+  r_abs = abs(r_precise),
+  z = fisherz(r_abs)
+)
+
+descriptivesTable2 = d2 %>% group_by(prediction) %>% 
+  summarize(count = n(), r_mean = mean(r_abs), r_sd = sd(r_abs)) %>%
+  ungroup() %>% mutate(r_se = r_sd/sqrt(count))
+
+pander(descriptivesTable2)
+
+## Testing if effect sizes in 'Predicted and Supported' are higher than in 'No Prediction and Significant': (note that we convert the pearson `r`'s to `z`'s and do a two-sample t-test.)
+
+# Testing for a difference between these two: 
+d2 %>% 
+  filter(prediction %in% c("Predicted & Supported", 
+                           "No prediction & Significant")) %>%
+  t.test(z ~ prediction, data=.)
+
+# d2 %>% ggplot(aes(x=r_abs, fill=prediction)) + 
+#   geom_density(alpha=.3) + xlab("(Absolute) Effect Size") + 
+#   ylab("Density") + my_theme +
+#   guides(fill=guide_legend(nrow=2,byrow=TRUE))
+
+```
+
+
+### Table 4: Profiles Table (Appraisals with larger relationships (r >.25) or smaller relationships)
+
+```{r make-profiles-table, warning=F, message=F, echo=T, eval=T}
+full_table = data.frame()
+for(this_emotion in c(LIST_OF_EMOTIONS_Short, LIST_OF_EMOTIONS_Long)) {
+  this_table = data.frame()
+  
+  for(this_appraisal in LIST_OF_APPRAISALS) {
+    df = data %>% filter(Emotion == this_emotion,
+                         Appraisal_alphabetical_order == this_appraisal)
+    if(nrow(df)>=1) {
+      this_table = bind_rows(this_table, 
+                             meta_analysis_for_table(df, this_emotion,
+                                                     pubBias=FALSE,
+                                                     interpretation=FALSE))
+    }
+  }
+  this_table <- this_table %>% arrange(Emotion, desc(k), Appraisal)
+  full_table = bind_rows(full_table, this_table)
+}
+
+full_table <- full_table %>% mutate(
+  significant = grepl("[*]", r),
+  r_bare = abs(as.numeric(gsub("[*]", "", r)))
+) %>% select(-ci, -Q, -tau, -I2) %>% 
+  mutate(Appraisal = fct_relevel(Appraisal, LIST_OF_APPRAISALS_alphabetical)) %>%
+  arrange(Emotion, desc(k), Appraisal)
+
+table_profile_intermediate = full_table %>% filter(significant) %>% 
+  mutate(large = (r_bare > .25)) %>%
+  group_by(Emotion, large) %>% arrange(Appraisal) %>% summarize(
+    list_appraisals = paste0(Appraisal, collapse=", ")
+  ) %>% arrange(Emotion, desc(large))
+
+table_profile = full_join(
+ table_profile_intermediate %>% filter(large) %>% select(-large) %>% rename(Large = list_appraisals),
+ table_profile_intermediate %>% filter(!large) %>% select(-large) %>% rename(Small = list_appraisals),
+ id=Emotion
+) %>% arrange(Emotion)
+pander(table_profile, split.table = Inf)
+```
+
+
+
+
+
+### Table S6: Moderator Analysis Table
+```{r make-static-tables-for-paper-moderator, warning=F, echo=T, eval=F}
+#### Moderator Analyses
+
+## Set `eval=T` to run this chunk.
+## This is written to file, not output.
+
+
+# This function is a helper function to construct the table for the moderator analyses.
+meta_analysis_for_table_moderator = function(df, this_emotion, num_digits=4) {
+  # only do for appraisal-emotion relationships that have at least 1 exp and 1 control condition
+  if (dim(df[df$exp == 'yes',])[1] >0 & dim(df[df$exp == 'no',])[1] >0){
+    meta_df = mvmeta(z~exp, S = v, data = df, method = "ml")
+    df$exp_num <- ifelse(df$exp == 'yes',1,0)
+    meta_df_sem = rma(yi = z, vi = v, mods = exp_num, data = df, method = 'ML') # using the metaSEM to get I2
+    df_cor = df[df$exp == 'no',]
+    if (dim(df_cor)[1] > 1){
+      meta_df1 = mvmeta(z, S = v, data = df_cor, method = "ml")
+      summary_meta_df1 <- summary(meta_df1)
+      r_cor = round(summary_meta_df1$coefficients["(Intercept)", "Estimate"], 2)
+    } else {
+      r_cor = round(df_cor$z,2)
+    }
+    summary_meta_df <- summary(meta_df)
+    summary_meta_df_sem<- summary(meta_df_sem)
+    if(summary_meta_df$qstat$pvalue<0.001) {
+      Q_pstring = "***"
+    } else if(summary_meta_df$qstat$pvalue<0.01) {
+      Q_pstring = "**"
+    } else if(summary_meta_df$qstat$pvalue<0.05) {
+      Q_pstring = "*"
+    } else { Q_pstring = "" }
+    
+    
+    r_p = summary_meta_df$coefficients["(Intercept)", "Pr(>|z|)"]
+    if(r_p < 0.001) {
+      r_pstring = "***"
+    } else if(r_p < 0.01) {
+      r_pstring = "**"
+    } else if(r_p < 0.05) {
+      r_pstring = "*"
+    } else { r_pstring = "" }
+     
+    moderator_p = summary_meta_df$coefficients["expyes", "Pr(>|z|)"]
+    if(moderator_p < 0.001) {
+      pstring = "***"
+    } else if(moderator_p < 0.01) {
+      pstring = "**"
+    } else if(moderator_p < 0.05) {
+      pstring = "*"
+    } else { pstring = "" }
+    
+    n_exp <- dim(df[df$exp == 'yes',])[1]
+    n_co <- dim(df[df$exp == 'no',])[1]
+    
+    table_df = data.frame(
+      Emotion = this_emotion,
+      Appraisal = df$Appraisal[1],
+      Q = paste(round(summary_meta_df$qstat$Q, 2), " (", 
+                format(summary_meta_df$qstat$df, digits=num_digits), ")", Q_pstring, sep=""),
+      #k = paste(nrow(df), " (c=",n_co,", e=",n_exp,")"),
+      k_cor = n_co,
+      k_exp = n_exp,
+      r_cor = paste(r_cor, r_pstring, sep=""),
+      b = round(summary_meta_df$coefficients["expyes", "Estimate"],2),
+      z = paste(round(summary_meta_df$coefficients["expyes", "z"], 2), pstring, sep=""),
+      i_sqaured = round(summary_meta_df_sem$R2,1))
+    return(table_df)
+  }
+}
+
+
+
+# This next chunk actually produces the table for the moderator analysis
+
+full_table = data.frame()
+for(this_emotion in sort(c(LIST_OF_EMOTIONS_Short, LIST_OF_EMOTIONS_Long))) {
+  this_table = data.frame()
+  
+  for(this_appraisal in LIST_OF_APPRAISALS) {
+    df = data %>% filter(Emotion == this_emotion,
+                         Appraisal == this_appraisal)
+    if (dim(df[df$exp == 'yes',])[1] >0 & dim(df[df$exp == 'no',])[1] >0 & dim(df)[1] >2) {
+      this_table = bind_rows(this_table, 
+                             meta_analysis_for_table_moderator(df, this_emotion))
+    }
+  }
+  #this_table <- this_table %>% arrange(Emotion, desc(k), Appraisal)
+  full_table = bind_rows(full_table, this_table)
+}
+
+write.csv(full_table, "table-raw-moderator2.csv", row.names=F, na="")
+
+
+
+full_table_significant_moderator = full_table %>% filter(str_detect(z, fixed("*"))) %>% mutate(
+  r_sign = as.numeric(str_replace_all(r_cor, fixed("*"), "")), 
+  z_sign = as.numeric(str_replace_all(z, fixed("*"), "")),
+  same_sign = ((r_sign*z_sign)>0)
+)
+
+full_table_significant_moderator_same_pattern = full_table_significant_moderator %>% filter(same_sign)
+
+
+# number relationships tested: nrow(full_table) = 73
+# number relationships significant: nrow(full_table_significant_moderator) = 21
+# of these, same sign are: nrow(full_table_significant_moderator_same_pattern) = 9
+# that means 12 are different sign.
+
+```
+
+
+### Table S7: Table for References to predictions
+```{r make-static-tables-for-paper-prediction, warning=F, echo=T, eval=F}
+## this chunk is used to write the prediction tables
+
+library(stringr)
+df <- read.csv('prediction_data.csv', header=T) # prediction file
+df_reference <- read.csv('reference_prediction.csv', header=T)
+#string_test <- df$Predicted[2]
+#hi1 <- string_test %>% str_match_all("[0-9]+") %>% sapply(toString)
+#hi2 <- as.numeric(unlist(strsplit(hi1, split=", ")))
+#grepl("\\d", string_test)
+
+df_reference_total <- data.frame()
+for (i in 1:dim(df)[1]){
+  string <- df$Predicted[i]
+  if (grepl("\\d", string)){
+    string1 <- string %>% str_match_all("[0-9]+") %>% sapply(toString)
+    string2 <- as.numeric(unlist(strsplit(string1, split=", ")))
+    reference_lists <- c()
+    for (num in string2){
+      row_reference <- df_reference[df_reference$num == num,]
+      reference_lists <- c(reference_lists,row_reference$reference)
+    }
+    df_reference_row <- data.frame(
+      appraisal = df$Appraisal[i],
+      emotion = df$Emotion[i],
+      reference = paste(reference_lists, collapse = "; ")
+    )
+    df_reference_total <- rbind(df_reference_total, df_reference_row)
+  }
+}
+
+write.csv(df_reference_total,"prediction_results.csv", row.names=F, na="")
+```
+
+
+```{r heterogeniety-analyses, echo=F, eval=F}
+pred <- read.csv('predicted_relationships.csv', header=T) %>% 
+  arrange(Emotion, Appraisal) %>%
+  mutate(I2 = NA)
+for(thisRow in c(1:nrow(pred))) {
+  this_emotion = pred$Emotion[thisRow]
+  this_appraisal = pred$Appraisal[thisRow]
+  df = data %>% filter(Emotion == this_emotion,
+                         Appraisal == this_appraisal)
+  if(nrow(df)>=1) {
+    this_table = meta_analysis_for_table(df, this_emotion,
+                                         pubBias=FALSE,
+                                         interpretation=FALSE)
+    pred$I2[thisRow] = this_table$I2[1]
+  }
+}
+
+# Considering only k>3, (41 cases of "No prediction & Significant”, 68 cases of “Predicted & Supported”)
+pred %>% filter(k>3) %>% mutate(I2 = as.numeric(I2)) %>% summarize(meanI2 = mean(I2, na.rm=T))
+pred %>% filter(k>3,
+                prediction %in% c("Predicted & Supported", "No prediction & Significant")) %>%
+  mutate(I2 = as.numeric(I2)) %>%
+  group_by(prediction) %>% 
+  summarize(meanI2 = mean(I2, na.rm=T), sdI2 = sd(I2, na.rm=T), num = n())
+
+pred %>% filter(k>3,
+                prediction %in% c("Predicted & Supported", "No prediction & Significant")) %>%
+  mutate(I2 = as.numeric(I2)) %>%
+  t.test(I2 ~ prediction, data=.) 
+
+```
